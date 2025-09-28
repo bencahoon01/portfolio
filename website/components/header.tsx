@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import ShinyText from './ShinyText';
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("hero")
@@ -68,16 +67,7 @@ export default function Header() {
                   transformStyle: "preserve-3d",
                 }}
               >
-                {activeSection === item.id ? (
-                  <ShinyText 
-                    text={`// ${item.label}`}
-                    disabled={false}
-                    speed={5}
-                    className="text-accent"
-                  />
-                ) : (
-                  `// ${item.label}`
-                )}
+                {`// ${item.label}`}
               </button>
             </li>
           ))}
