@@ -3,26 +3,44 @@
 import { useEffect, useState } from "react"
 
 export default function Header() {
-  const [currentSection, setCurrentSection] = useState(0)
+  const [activeSection, setActiveSection] = useState("hero")
 
   const navItems = [
-    { number: "01", label: "home", href: "#hero" },
-    { number: "02", label: "about", href: "#about" },
-    { number: "03", label: "work", href: "#work" },
-    { number: "04", label: "experience", href: "#experience" },
-    { number: "05", label: "contact", href: "#contact" },
+    { number: "01", label: "home", href: "#hero", id: "hero" },
+    { number: "02", label: "about", href: "#about", id: "about" },
+    { number: "03", label: "work", href: "#work", id: "work" },
+    { number: "04", label: "experience", href: "#experience", id: "experience" },
+    { number: "05", label: "contact", href: "#contact", id: "contact" },
   ]
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      const windowHeight = window.innerHeight
-      const section = Math.floor(scrollPosition / windowHeight)
-      setCurrentSection(section)
+    const observerOptions = {
+      root: null,
+      rootMargin: '-10% 0px -90% 0px', // Trigger when section is 10% from top
+      threshold: 0
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    // Observe all sections
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.id)
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   const scrollToSection = (href: string) => {
@@ -43,7 +61,7 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection(item.href)}
                 className={`transition-all duration-300 hover:rotate-y-12 ${
-                  currentSection === index ? "text-accent" : "text-foreground hover:text-accent"
+                  activeSection === item.id ? "text-accent" : "text-foreground hover:text-accent"
                 }`}
                 style={{
                   transformStyle: "preserve-3d",
