@@ -2,6 +2,7 @@
 
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import Background from "@/components/background"
 import Header from "@/components/header"
 import DecorativeElements from "@/components/decorative-elements"
@@ -43,6 +44,12 @@ const projects = {
         image: "/cybersecurity-fortress-digital-protection-shield-b.jpg",
       },
     ],
+    results: [
+      "Achieved 94% classification accuracy in real-time neural signal processing",
+      "Reduced signal processing latency to under 10ms for responsive control",
+      "Successfully integrated WebGL visualization with TensorFlow pipeline",
+      "Key takeaway: Learned advanced real-time data streaming and ML model optimization"
+    ],
     liveUrl: "https://neural-interface-demo.com",
     githubUrl: "https://github.com/bencahoon/neural-interface",
   },
@@ -82,6 +89,12 @@ const projects = {
         image: "/cybersecurity-fortress-digital-protection-shield-b.jpg",
       },
     ],
+    results: [
+      "Enabled 3D visualization of 64-qubit quantum states in real-time",
+      "Reduced quantum algorithm design time by 60% through intuitive interface",
+      "Successfully integrated multiple quantum computing frameworks",
+      "Key takeaway: Mastered complex 3D mathematics and quantum computing concepts"
+    ],
     liveUrl: "https://quantum-dashboard-demo.com",
     githubUrl: "https://github.com/bencahoon/quantum-dashboard",
   },
@@ -120,6 +133,12 @@ const projects = {
         description: "Implemented a Node.js backend with MongoDB for scalable data storage and automated incident response, ensuring the platform could handle enterprise-level security monitoring.",
         image: "/quantum-computing-dashboard-holographic-interface-.jpg",
       },
+    ],
+    results: [
+      "Implemented immutable threat logging with 99.9% uptime reliability",
+      "Reduced incident response time by 75% through automated triggers",
+      "Successfully deployed to handle 10,000+ security events per second",
+      "Key takeaway: Gained expertise in blockchain architecture and enterprise security"
     ],
     liveUrl: "https://cyber-fortress-demo.com",
     githubUrl: "https://github.com/bencahoon/cyber-fortress",
@@ -166,9 +185,13 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 <h2 className="text-3xl font-archivo text-foreground mb-12 grainy-texture">PROCESS & GALLERY</h2>
                 <div className="space-y-16">
                   {project.process.map((step, index) => (
-                    <div
+                    <motion.div
                       key={index}
                       className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
                     >
                       {/* Logic to alternate image and text position */}
                       <div className={` ${index % 2 === 1 ? "md:order-2" : ""}`}>
@@ -178,10 +201,37 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                         <h3 className="text-2xl font-archivo text-foreground">{step.stepTitle}</h3>
                         <p className="text-foreground/80 leading-relaxed">{step.description}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
+            )}
+
+            {/* --- RESULTS SECTION --- */}
+            {project.results && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-archivo text-foreground mb-8 grainy-texture">RESULTS & KEY TAKEAWAYS</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {project.results.map((result, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start gap-4 p-4 bg-muted/20 rounded-lg border border-border/50"
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      <span className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                      <p className="text-foreground/90 leading-relaxed">{result}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             )}
           </div>
 
@@ -206,7 +256,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                   {project.tech.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-muted text-foreground text-sm font-mono border border-border"
+                      className="px-3 py-1 bg-muted text-foreground text-sm font-mono border border-border hover:bg-accent hover:text-background transition-all duration-300 cursor-default"
                     >
                       {tech}
                     </span>
