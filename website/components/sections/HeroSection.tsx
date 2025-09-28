@@ -55,7 +55,7 @@ export default function HeroSection() {
           <div className="relative w-full h-96 md:h-[28rem]">
             {/* BEN - positioned symmetrically left of center */}
             <motion.div 
-              className="absolute right-[70%] top-25" 
+              className="absolute right-[75%] top-25" 
               style={{ pointerEvents: 'auto' }}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -68,7 +68,7 @@ export default function HeroSection() {
 
             {/* CAHOON - positioned symmetrically right of center */}
             <motion.div 
-              className="absolute left-[70%] bottom-0" 
+              className="absolute left-[73%] bottom-0" 
               style={{ pointerEvents: 'auto' }}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
