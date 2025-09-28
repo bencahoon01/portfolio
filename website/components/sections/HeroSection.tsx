@@ -23,7 +23,7 @@ const ASCIIFallback = () => (
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="snap-start h-screen relative z-20 bg-background overflow-hidden" style={{ pointerEvents: 'auto' }}>
+    <section id="hero" className="snap-start h-screen relative z-20 bg-background overflow-hidden fade-out-bottom" style={{ pointerEvents: 'auto' }}>
       {/* ASCII Canvas Background */}
       <ThreeErrorBoundary fallback={<ASCIIFallback />}>
         <div className="absolute inset-0 z-0" style={{ pointerEvents: 'auto' }}>
@@ -45,7 +45,7 @@ export default function HeroSection() {
       </ThreeErrorBoundary>
       
       {/* Hero Content Overlay - preserving your existing layout */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen" style={{ pointerEvents: 'none' }}>
+      <div className="relative z-10 flex items-center justify-center min-h-screen -mt-16" style={{ pointerEvents: 'none' }}>
         <div className="relative w-full max-w-6xl h-96 flex items-center justify-center">
           {/* BEN - top left */}
           <div className="absolute top-0 left-0" style={{ pointerEvents: 'auto' }}>

@@ -12,23 +12,12 @@ export default function InteractiveModel() {
     if (!groupRef.current || !torusRef.current) return
 
     try {
-      // Mouse cursor following effect with parallax
-      const { x, y } = state.mouse
+      // Simple rotation animation - more subtle and less distracting
+      groupRef.current.rotation.y += delta * 0.2
       
-      // Add some debugging (remove after testing)
-      console.log('Mouse position:', { x, y })
-      
-      // Main group follows mouse with rotation
-      groupRef.current.rotation.y = x * 0.3
-      groupRef.current.rotation.x = y * 0.2
-      
-      // Torus has additional subtle rotation based on mouse position
-      torusRef.current.rotation.z = x * 0.15
-      torusRef.current.rotation.y = y * 0.1
-      
-      // Subtle position offset for parallax effect
-      groupRef.current.position.x = x * 0.5
-      groupRef.current.position.y = y * 0.3
+      // Torus has additional rotation on different axes for visual interest
+      torusRef.current.rotation.z += delta * 0.15
+      torusRef.current.rotation.x += delta * 0.1
     } catch (error) {
       // Handle animation errors gracefully
       console.error('Animation error:', error)

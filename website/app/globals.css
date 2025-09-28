@@ -190,3 +190,9 @@
     border-color: #007cf0;
   }
 }
+
+/* Fade-out transition for smooth scrolling */
+.fade-out-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
