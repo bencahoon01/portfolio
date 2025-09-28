@@ -220,15 +220,3 @@
     transform: translateY(5px);
   }
 }
-
-.ghost-text::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-text-stroke: 1px var(--secondary);
-  color: transparent;
-  opacity: 0.3;
-  animation: ghost-float 4s ease-in-out infinite;
-}

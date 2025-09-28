@@ -24,6 +24,7 @@ const experiences = [
 
 export default function ExperienceSection() {
   const [expandedExperience, setExpandedExperience] = useState<number | null>(null)
+  const [animationComplete, setAnimationComplete] = useState(false)
 
   return (
     <section id="experience" className="snap-start min-h-screen flex items-center justify-center relative z-20 py-20">
@@ -39,16 +40,20 @@ export default function ExperienceSection() {
         </motion.h2>
 
         <motion.div 
-          className="space-y-6 max-h-[60vh] overflow-y-auto pr-4"
+          className={`space-y-6 max-h-[60vh] pr-4 px-2 ${animationComplete ? 'overflow-y-auto overflow-x-visible' : 'overflow-hidden'}`}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}
           viewport={{ once: true }}
+          onAnimationComplete={() => {
+            // Set a timeout to ensure all child animations are complete
+            setTimeout(() => setAnimationComplete(true), 1000)
+          }}
         >
           {experiences.map((exp, index) => (
             <motion.div 
               key={index} 
-              className="border-b border-foreground/20 pb-6"
+              className="border-b border-foreground/20 pb-6 mx-2"
               initial={{ opacity: 0, y: 30, x: -20 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               transition={{ 
@@ -64,6 +69,7 @@ export default function ExperienceSection() {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 transition={{ duration: 0.2 }}
+                style={{ transformOrigin: 'center center' }}
               >
                 <div className="flex justify-between items-center py-4">
                   <div className="flex-1">

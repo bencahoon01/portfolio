@@ -1,6 +1,59 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
+
+// Typewriter animation component
+const TypewriterText = ({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) => {
+  const [displayText, setDisplayText] = useState("")
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isInView, setIsInView] = useState(false)
+  const [isTypingComplete, setIsTypingComplete] = useState(false)
+
+  useEffect(() => {
+    if (!isInView) return
+
+    const timer = setTimeout(() => {
+      if (currentIndex < text.length) {
+        setDisplayText(prev => prev + text[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      } else if (!isTypingComplete) {
+        // Typing is complete, wait a moment then hide cursor
+        setTimeout(() => setIsTypingComplete(true), 1000)
+      }
+    }, 80 + Math.random() * 40) // Slight randomness for natural typing feel
+
+    return () => clearTimeout(timer)
+  }, [currentIndex, text, isInView, isTypingComplete])
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ 
+        opacity: 1,
+        transition: { duration: 0.5, delay }
+      }}
+      onViewportEnter={() => setIsInView(true)}
+      viewport={{ once: true }}
+      className={className}
+    >
+      {displayText}
+      <motion.span
+        animate={{ 
+          opacity: isTypingComplete ? [1, 0] : [0, 1, 0] 
+        }}
+        transition={{
+          duration: isTypingComplete ? 0.5 : 0.8,
+          repeat: currentIndex < text.length && !isTypingComplete ? Infinity : 0,
+          ease: "linear"
+        }}
+        className="ml-1"
+      >
+        |
+      </motion.span>
+    </motion.div>
+  )
+}
 
 export default function AboutSection() {
   return (
@@ -45,23 +98,14 @@ export default function AboutSection() {
             className="flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
             whileInView={{ opacity: 1, scale: 1, rotate: -12 }}
-            whileHover={{ 
-              scale: 1.1, 
-              rotate: -8,
-              transition: { duration: 0.3 }
-            }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <motion.h3 
+            <TypewriterText 
+              text="Code is poetry in motion"
               className="text-4xl font-serif italic text-secondary"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              {"Code is poetry in motion"}
-            </motion.h3>
+              delay={0.5}
+            />
           </motion.div>
         </div>
 
@@ -72,41 +116,54 @@ export default function AboutSection() {
           viewport={{ once: true }}
         >
           <motion.h2 
-            className="text-6xl md:text-8xl font-archivo text-foreground mb-12 grainy-texture"
+            className="text-3xl md:text-4xl font-archivo text-foreground mb-12 grainy-texture"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            MY EXPERTISE
+            MY SKILLS
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 number: "01",
-                title: "Software Development",
+                title: "Frontend",
                 skills: [
-                  "• Full-stack web applications",
-                  "• Modern JavaScript frameworks", 
-                  "• RESTful API integration"
+                  "• React & Next.js",
+                  "• TypeScript", 
+                  "• Tailwind CSS",
+                  "• Framer Motion"
                 ]
               },
               {
                 number: "02", 
-                title: "AI & Machine Learning",
+                title: "Backend",
                 skills: [
-                  "• Retrieval-Augmented Generation",
-                  "• AI-Powered Browser Extension",
-                  "• OpenAI API Integration"
+                  "• Node.js & Express",
+                  "• Python & FastAPI",
+                  "• RESTful APIs",
+                  "• Database Design"
                 ]
               },
               {
                 number: "03",
-                title: "System Architecture", 
+                title: "Cloud & DevOps", 
                 skills: [
-                  "• Scalable serverless backends",
-                  "• Cloud infrastructure (AWS)",
-                  "• Performance optimization"
+                  "• AWS Services",
+                  "• Serverless Architecture",
+                  "• CI/CD Pipelines",
+                  "• Docker"
+                ]
+              },
+              {
+                number: "04",
+                title: "AI & ML", 
+                skills: [
+                  "• OpenAI Integration",
+                  "• RAG Systems",
+                  "• Machine Learning",
+                  "• Data Processing"
                 ]
               }
             ].map((expertise, index) => (
