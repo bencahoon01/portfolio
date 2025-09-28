@@ -3,15 +3,26 @@
 import { useState, useEffect } from "react"
 
 export default function PreLoader() {
-  const [isVisible, setIsVisible] = useState(true)
+  // We'll start by assuming the preloader should be hidden
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false)
-    }, 3000)
+    // Check if we've already shown the preloader in this session
+    const hasLoaded = sessionStorage.getItem("preloader-shown")
 
-    return () => clearTimeout(timer)
-  }, [])
+    if (!hasLoaded) {
+      // If not, show it
+      setIsVisible(true)
+
+      const timer = setTimeout(() => {
+        setIsVisible(false)
+        // Once it's done, set the flag in session storage
+        sessionStorage.setItem("preloader-shown", "true")
+      }, 3000)
+
+      return () => clearTimeout(timer)
+    }
+  }, []) // This effect runs only once when the component mounts
 
   if (!isVisible) return null
 

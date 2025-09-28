@@ -7,8 +7,8 @@ export default function Header() {
 
   const navItems = [
     { number: "01", label: "home", href: "#hero" },
-    { number: "02", label: "work", href: "#work" },
-    { number: "03", label: "about", href: "#about" },
+    { number: "02", label: "about", href: "#about" },
+    { number: "03", label: "work", href: "#work" },
     { number: "04", label: "experience", href: "#experience" },
     { number: "05", label: "contact", href: "#contact" },
   ]

@@ -178,7 +178,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                 {/* Back to Work */}
                 <div className="pt-8">
                   <Link
-                    href="/work"
+                    href="/#work"
                     className="inline-flex items-center gap-2 text-foreground hover:text-accent transition-colors duration-300 font-mono"
                   >
                     ← Back to Work

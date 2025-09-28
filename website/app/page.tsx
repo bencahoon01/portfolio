@@ -39,8 +39,8 @@ export default function Home() {
 
       <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
         <HeroSection />
-        <WorkSection />
         <AboutSection />
+        <WorkSection />
         <ExperienceSection />
         <ContactSection />
       </div>
