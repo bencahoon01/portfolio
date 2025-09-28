@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 const experiences = [
   {
@@ -27,16 +28,42 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className="snap-start min-h-screen flex items-center justify-center relative z-20 py-20">
       <div className="max-w-4xl mx-auto px-8 w-full">
-        <h2 className="text-6xl md:text-8xl font-archivo text-foreground mb-16 text-center grainy-texture">
+        <motion.h2 
+          className="text-6xl md:text-8xl font-archivo text-foreground mb-16 text-center grainy-texture"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           EXPERIENCE
-        </h2>
+        </motion.h2>
 
-        <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4">
+        <motion.div 
+          className="space-y-6 max-h-[60vh] overflow-y-auto pr-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           {experiences.map((exp, index) => (
-            <div key={index} className="border-b border-foreground/20 pb-6">
-              <button
+            <motion.div 
+              key={index} 
+              className="border-b border-foreground/20 pb-6"
+              initial={{ opacity: 0, y: 30, x: -20 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.5 + (index * 0.15),
+                ease: "easeOut"
+              }}
+              viewport={{ once: true }}
+            >
+              <motion.button
                 onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}
                 className="w-full text-left group"
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ duration: 0.2 }}
               >
                 <div className="flex justify-between items-center py-4">
                   <div className="flex-1">
@@ -47,32 +74,54 @@ export default function ExperienceSection() {
                       {exp.company} • {exp.period}
                     </p>
                   </div>
-                  <div className="text-2xl text-foreground group-hover:text-accent transition-all duration-300">
+                  <motion.div 
+                    className="text-2xl text-foreground group-hover:text-accent transition-all duration-300"
+                    animate={{ 
+                      rotate: expandedExperience === index ? 45 : 0,
+                      scale: expandedExperience === index ? 1.1 : 1
+                    }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
                     {expandedExperience === index ? "−" : "+"}
-                  </div>
+                  </motion.div>
                 </div>
-              </button>
+              </motion.button>
 
               <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
                 expandedExperience === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               }`}>
                 <div className="pb-4 space-y-4 pt-2">
                   <p className="text-foreground/80 leading-relaxed">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tech.map((tech) => (
-                      <span
+                  <motion.div 
+                    className="flex flex-wrap gap-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: expandedExperience === index ? 1 : 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                    {exp.tech.map((tech, techIndex) => (
+                      <motion.span
                         key={tech}
                         className="px-3 py-1 border border-foreground/30 text-sm font-mono text-foreground"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ 
+                          opacity: expandedExperience === index ? 1 : 0,
+                          scale: expandedExperience === index ? 1 : 0.8
+                        }}
+                        transition={{ 
+                          duration: 0.4, 
+                          delay: expandedExperience === index ? 0.2 + (techIndex * 0.05) : 0,
+                          ease: "easeOut"
+                        }}
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* <div className="mt-16">
           <h3 className="text-2xl font-archivo text-foreground mb-6">CERTIFICATIONS</h3>

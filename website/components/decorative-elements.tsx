@@ -36,8 +36,22 @@ export default function DecorativeElements() {
       </div>
 
       <div className="fixed bottom-8 right-35 z-30 text-foreground font-mono text-sm text-right">
-        <div>GITHUB</div>
-        <div>LINKEDIN</div>
+        <a 
+          href="https://github.com/bencahoon01" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block hover:text-accent transition-colors duration-300 cursor-pointer"
+        >
+          GITHUB
+        </a>
+        <a 
+          href="https://linkedin.com/in/bcahoon" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block hover:text-accent transition-colors duration-300 cursor-pointer"
+        >
+          LINKEDIN
+        </a>
         <div className="text-secondary">UPDATED {currentYear}</div>
       </div>
     </>

@@ -42,21 +42,35 @@ export default function WorkSection() {
       <div className="max-w-7xl mx-auto px-8">
         <motion.div
           className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-8 h-8 flex items-center justify-center text-accent">
+            <motion.div 
+              className="w-8 h-8 flex items-center justify-center text-accent"
+              initial={{ opacity: 0, rotate: -180, scale: 0 }}
+              whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <svg viewBox="0 0 24 24" className="w-6 h-6">
                 <path
                   fill="currentColor"
                   d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
                 />
               </svg>
-            </div>
-            <h2 className="text-2xl font-archivo text-foreground">SELECTED CASES</h2>
+            </motion.div>
+            <motion.h2 
+              className="text-2xl font-archivo text-foreground"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              SELECTED CASES
+            </motion.h2>
           </div>
         </motion.div>
 
@@ -72,23 +86,101 @@ export default function WorkSection() {
               transition={{ duration: 0.5, delay: 0.1 * index }}
               viewport={{ once: true }}
             >
-              <div className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
+              <motion.div 
+                className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-2" : ""}`}
+                initial={{ opacity: 0, x: index % 2 === 1 ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
+                viewport={{ once: true }}
+              >
                 <Link href={`/work/${project.id}`} className="block group cursor-pointer">
-                  <h3 className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture group-hover:text-accent transition-colors duration-300">
+                  <motion.h3 
+                    className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture group-hover:text-accent transition-colors duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
+                    viewport={{ once: true }}
+                  >
                     {project.title}
-                  </h3>
-                  <p className="text-sm font-mono text-secondary mb-4 tracking-wider">{project.subtitle}</p>
-                  <p className="text-foreground/80 leading-relaxed">{project.description}</p>
+                  </motion.h3>
+                  <motion.p 
+                    className="text-sm font-mono text-secondary mb-4 tracking-wider"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
+                    viewport={{ once: true }}
+                  >
+                    {project.subtitle}
+                  </motion.p>
+                  <motion.p 
+                    className="text-foreground/80 leading-relaxed mb-6"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
+                    viewport={{ once: true }}
+                  >
+                    {project.description}
+                  </motion.p>
                 </Link>
-              </div>
+                
+                {/* Tech Stack */}
+                <motion.div 
+                  className="flex flex-wrap gap-2"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.6 + (index * 0.1) }}
+                  viewport={{ once: true }}
+                >
+                  {project.tech.map((tech, techIndex) => (
+                    <motion.span
+                      key={tech}
+                      className="px-3 py-1 border border-foreground/30 text-sm font-mono text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+                      initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ 
+                        duration: 0.4, 
+                        delay: 0.7 + (index * 0.1) + (techIndex * 0.05),
+                        ease: "easeOut"
+                      }}
+                      viewport={{ once: true }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              </motion.div>
 
-              <div className={`${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
+              <motion.div 
+                className={`${index % 2 === 1 ? "lg:col-start-1" : ""}`}
+                initial={{ opacity: 0, x: index % 2 === 1 ? -30 : 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                viewport={{ once: true }}
+              >
                 <Link href={`/work/${project.id}`} className="block group">
-                  <div className="rounded-lg shadow-lg w-full h-80 bg-muted/40 border border-border/30 flex items-center justify-center group-hover:bg-muted/60 transition-all duration-500">
-                    <span className="text-foreground/50 font-mono text-sm">Image Placeholder</span>
-                  </div>
+                  <motion.div 
+                    className="rounded-lg shadow-lg w-full h-80 bg-muted/40 border border-border/30 flex items-center justify-center group-hover:bg-muted/60 transition-all duration-500"
+                    whileHover={{ 
+                      scale: 1.02,
+                      rotateX: 5,
+                      rotateY: index % 2 === 1 ? -5 : 5,
+                      transition: { duration: 0.3 }
+                    }}
+                    style={{ perspective: 1000 }}
+                  >
+                    <motion.span 
+                      className="text-foreground/50 font-mono text-sm"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
+                      viewport={{ once: true }}
+                    >
+                      Image Placeholder
+                    </motion.span>
+                  </motion.div>
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

@@ -2,6 +2,7 @@
 
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { motion } from 'framer-motion' // Import motion
 import AsciiRenderer from '@/components/AsciiRenderer'
 import InteractiveModel from '@/components/InteractiveModel'
 import ThreeErrorBoundary from '@/components/ThreeErrorBoundary'
@@ -53,26 +54,44 @@ export default function HeroSection() {
           {/* Symmetrical Name Container */}
           <div className="relative w-full h-96 md:h-[28rem]">
             {/* BEN - positioned symmetrically left of center */}
-            <div className="absolute right-[70%] top-25" style={{ pointerEvents: 'auto' }}>
+            <motion.div 
+              className="absolute right-[70%] top-25" 
+              style={{ pointerEvents: 'auto' }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 BEN
               </h1>
-            </div>
+            </motion.div>
 
             {/* CAHOON - positioned symmetrically right of center */}
-            <div className="absolute left-[70%] bottom-0" style={{ pointerEvents: 'auto' }}>
+            <motion.div 
+              className="absolute left-[70%] bottom-0" 
+              style={{ pointerEvents: 'auto' }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 CAHOON
               </h1>
-            </div>
+            </motion.div>
           </div>
 
           {/* Title - positioned with a margin below the names */}
-          <div className="mt-16" style={{ pointerEvents: 'auto' }}>
+          <motion.div 
+            className="mt-16" 
+            style={{ pointerEvents: 'auto' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
             <p className="text-secondary font-mono text-sm md:text-base typewriter bg-background/20 backdrop-blur-sm px-3 py-1 rounded">
               STUDENT & FULL-STACK DEVELOPER
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
