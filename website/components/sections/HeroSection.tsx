@@ -6,14 +6,15 @@ import AsciiRenderer from '@/components/AsciiRenderer'
 import InteractiveModel from '@/components/InteractiveModel'
 import ThreeErrorBoundary from '@/components/ThreeErrorBoundary'
 import ScrollIndicator from '@/components/ScrollIndicator'
+import HeroDecorativeElements from '@/components/HeroDecorativeElements'
 
 // Fallback component for when 3D fails to load
 const ASCIIFallback = () => (
   <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-background/80 to-muted/20">
     <div className="absolute inset-0 opacity-20">
       <pre className="text-xs font-mono text-foreground/40 leading-none select-none whitespace-pre overflow-hidden">
-        {Array.from({ length: 50 }, (_, i) => 
-          Array.from({ length: 100 }, () => 
+        {Array.from({ length: 50 }, (_, i) =>
+          Array.from({ length: 100 }, () =>
             Math.random() > 0.7 ? ['*', '.', '-', '+', '='][Math.floor(Math.random() * 5)] : ' '
           ).join('') + '\n'
         ).join('')}
@@ -24,12 +25,13 @@ const ASCIIFallback = () => (
 
 export default function HeroSection() {
   return (
+    
     <section id="hero" className="snap-start h-screen relative z-20 bg-background overflow-hidden fade-out-bottom" style={{ pointerEvents: 'auto' }}>
       {/* ASCII Canvas Background */}
       <ThreeErrorBoundary fallback={<ASCIIFallback />}>
         <div className="absolute inset-0 z-0" style={{ pointerEvents: 'auto' }}>
           <Suspense fallback={<ASCIIFallback />}>
-            <Canvas 
+            <Canvas
               camera={{ position: [0, 0, 10], fov: 60 }}
               dpr={[1, 2]}
               performance={{ min: 0.5 }}
@@ -44,33 +46,39 @@ export default function HeroSection() {
           </Suspense>
         </div>
       </ThreeErrorBoundary>
-      
-      {/* Hero Content Overlay - preserving your existing layout */}
+
+      {/* Hero Content Overlay */}
       <div className="relative z-10 flex items-center justify-center min-h-screen -mt-16" style={{ pointerEvents: 'none' }}>
-        <div className="relative w-full max-w-6xl h-96 flex items-center justify-center">
-          {/* BEN - top left */}
-          <div className="absolute top-0 left-0" style={{ pointerEvents: 'auto' }}>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-              BEN
-            </h1>
+        <div className="flex flex-col items-center w-full max-w-4xl">
+          {/* Symmetrical Name Container */}
+          <div className="flex flex-col w-full gap-y-20 md:gap-y-28">
+            {/* BEN - self-aligned to the start (left) */}
+            <div className="self-start" style={{ pointerEvents: 'auto' }}>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+                BEN
+              </h1>
+            </div>
+
+            {/* CAHOON - self-aligned to the end (right) */}
+            <div className="self-end" style={{ pointerEvents: 'auto' }}>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+                CAHOON
+              </h1>
+            </div>
           </div>
 
-          {/* CAHOON - bottom right */}
-          <div className="absolute bottom-0 right-0" style={{ pointerEvents: 'auto' }}>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-              CAHOON
-            </h1>
-          </div>
-
-          {/* Title */}
-          <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
+          {/* Title - positioned with a margin below the names */}
+          <div className="mt-16" style={{ pointerEvents: 'auto' }}>
             <p className="text-secondary font-mono text-sm md:text-base typewriter bg-background/20 backdrop-blur-sm px-3 py-1 rounded">
               FULL-STACK DEVELOPER
             </p>
           </div>
         </div>
       </div>
-      
+
+      {/* Hero Decorative Elements */}
+      <HeroDecorativeElements />
+
       {/* Scroll Down Indicator */}
       <ScrollIndicator />
     </section>

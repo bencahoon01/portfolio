@@ -27,19 +27,10 @@ export default function InteractiveModel() {
   return (
     <group ref={groupRef}>
       <mesh ref={torusRef}>
-        <torusKnotGeometry args={[2.5, 0.6, 100, 16]} />
+        <torusKnotGeometry args={[2.5, 0.4, 100, 16]} />
         <meshBasicMaterial color="white" wireframe />
       </mesh>
-      
-      <mesh position={[3, 0, 0]}>
-        <sphereGeometry args={[0.6, 20, 20]} />
-        <meshBasicMaterial color="white" wireframe />
-      </mesh>
-      
-      <mesh position={[-3, 1, 0]}>
-        <boxGeometry args={[0.8, 0.8, 0.8]} />
-        <meshBasicMaterial color="white" wireframe />
-      </mesh>
+
     </group>
   )
 }
