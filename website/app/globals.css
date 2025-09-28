@@ -193,6 +193,42 @@
 
 /* Fade-out transition for smooth scrolling */
 .fade-out-bottom {
-  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* Slow spinning animation for circular text */
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: slow-spin 20s linear infinite;
+}
+
+/* Ghost text floating animation */
+@keyframes ghost-float {
+  0%, 100% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.ghost-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 1px var(--secondary);
+  color: transparent;
+  opacity: 0.3;
+  animation: ghost-float 4s ease-in-out infinite;
 }

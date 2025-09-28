@@ -5,6 +5,7 @@ import { Canvas } from '@react-three/fiber'
 import AsciiRenderer from '@/components/AsciiRenderer'
 import InteractiveModel from '@/components/InteractiveModel'
 import ThreeErrorBoundary from '@/components/ThreeErrorBoundary'
+import ScrollIndicator from '@/components/ScrollIndicator'
 
 // Fallback component for when 3D fails to load
 const ASCIIFallback = () => (
@@ -69,6 +70,9 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      
+      {/* Scroll Down Indicator */}
+      <ScrollIndicator />
     </section>
   )
 }
