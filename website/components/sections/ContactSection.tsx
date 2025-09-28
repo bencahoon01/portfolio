@@ -12,15 +12,15 @@ export default function ContactSection() {
 
         <div className="space-y-6">
           <a
-            href="mailto:ben.cahoon@example.com"
+            href="mailto:bencahoon01@gmail.com"
             className="inline-block text-3xl font-archivo text-foreground hover:text-accent transition-colors duration-300 grainy-texture"
           >
-            ben.cahoon@example.com
+            bencahoon01@gmail.com
           </a>
 
           <div className="flex justify-center space-x-8 pt-8">
             <a
-              href="https://github.com/bencahoon"
+              href="https://github.com/bencahoon01"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:text-accent transition-colors duration-300"
@@ -30,7 +30,7 @@ export default function ContactSection() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/bencahoon"
+              href="https://linkedin.com/in/bcahoon"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:text-accent transition-colors duration-300"

@@ -8,140 +8,140 @@ import Header from "@/components/header"
 import DecorativeElements from "@/components/decorative-elements"
 
 const projects = {
-  "neural-interface": {
-    title: "NEURAL INTERFACE",
-    subtitle: "AI/ML, BRAIN-COMPUTER INTERFACE",
-    heroImage: "/futuristic-neural-interface-brain-computer-connect.jpg",
+  "ai-browser-extension": {
+    title: "AI-POWERED BROWSER EXTENSION",
+    subtitle: "PERSONAL PROJECT",
+    heroImage: "placeholder",
     description:
-      "Revolutionary brain-computer interface enabling direct neural control of digital systems through advanced machine learning algorithms and real-time neural signal processing.",
+      "Developed a Chrome extension using React, TypeScript, and Tailwind CSS for AI-assisted responses. Integrated OpenAI API to generate contextual responses, migrating to AWS services for versatility and authentication.",
     overview:
-      "This project represents a breakthrough in human-computer interaction, developing a non-invasive brain-computer interface that translates neural signals into digital commands. The system uses advanced machine learning models to interpret brainwave patterns and execute corresponding actions in real-time.",
+      "This project is a Chrome extension that provides AI-assisted responses to user queries. It uses the OpenAI API to generate contextual responses and is built with a modern tech stack.",
     problem:
-      "The goal was to create a non-invasive BCI that could translate raw neural signals into digital commands in real-time, overcoming high signal-to-noise ratios and the complexity of interpreting brainwave patterns with millisecond precision.",
+      "The goal was to create a browser extension that could provide quick, AI-powered answers to user questions without leaving the current page.",
     solution:
-      "I developed a machine learning pipeline using TensorFlow to process and classify brainwave patterns with 94% accuracy. The front-end, built in React with WebGL for visualization, provided users with immediate visual feedback of their neural activity and control, while Node.js handled real-time data streaming.",
-    tech: ["React", "TensorFlow", "WebGL", "Node.js", "Python", "Neural Networks"],
+      "I developed a Chrome extension using React, TypeScript, and Tailwind CSS. I integrated the OpenAI API to generate contextual responses and later migrated to AWS services for better scalability and authentication.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "AWS", "OpenAI"],
     features: [
-      "Real-time neural signal processing",
-      "Machine learning pattern recognition",
-      "3D visualization of brain activity",
-      "Adaptive learning algorithms",
+      "AI-assisted responses",
+      "Context-aware suggestions",
+      "Seamless browser integration",
+      "Scalable backend infrastructure",
     ],
     process: [
       {
-        stepTitle: "01. Research & Prototyping",
-        description: "The initial phase involved researching existing BCI technologies and prototyping a basic data pipeline with TensorFlow to validate the core concept of real-time signal classification.",
-        image: "/futuristic-neural-interface-brain-computer-connect.jpg",
+        stepTitle: "01. Prototyping",
+        description: "The initial phase involved creating a basic prototype to test the feasibility of the project and experiment with the OpenAI API.",
+        image: "placeholder",
       },
       {
-        stepTitle: "02. Visualization & UI",
-        description: "Using React and WebGL, I developed an interactive interface that provided users with immediate visual feedback of their classified neural signals, turning abstract data into actionable control.",
-        image: "/quantum-computing-dashboard-holographic-interface-.jpg",
+        stepTitle: "02. Frontend Development",
+        description: "I built the user interface with React and TypeScript, focusing on creating a clean and intuitive user experience.",
+        image: "placeholder",
       },
       {
         stepTitle: "03. Backend & Deployment",
-        description: "A robust Node.js backend was built to handle real-time data streaming and processing. The entire application was containerized with Docker for scalable deployment.",
-        image: "/cybersecurity-fortress-digital-protection-shield-b.jpg",
+        description: "I migrated the backend to AWS for better scalability and authentication, and deployed the extension to the Chrome Web Store.",
+        image: "placeholder",
       },
     ],
     results: [
-      "Achieved 94% classification accuracy in real-time neural signal processing",
-      "Reduced signal processing latency to under 10ms for responsive control",
-      "Successfully integrated WebGL visualization with TensorFlow pipeline",
-      "Key takeaway: Learned advanced real-time data streaming and ML model optimization"
+      "Successfully launched a functional Chrome extension",
+      "Gained experience with the OpenAI API and AWS",
+      "Learned about the process of developing and publishing a browser extension",
+      "Key takeaway: The importance of a scalable backend for AI-powered applications"
     ],
-    liveUrl: "https://neural-interface-demo.com",
-    githubUrl: "https://github.com/bencahoon/neural-interface",
+    liveUrl: "https://chrome.google.com/webstore",
+    githubUrl: "https://github.com/bencahoon01",
   },
-  "quantum-dashboard": {
-    title: "QUANTUM DASHBOARD",
-    subtitle: "QUANTUM COMPUTING, DATA VISUALIZATION",
-    heroImage: "/quantum-computing-dashboard-holographic-interface-.jpg",
+  "checkers-game": {
+    title: "CHECKERS GAME",
+    subtitle: "GROUP PROJECT",
+    heroImage: "placeholder",
     description:
-      "Advanced quantum computing visualization platform for complex data analysis and quantum algorithm development.",
+      "Collaborated with a team to develop a playable Checkers game in Java, following test-driven development practices using JUnit.",
     overview:
-      "A comprehensive dashboard for quantum computing research, providing intuitive visualization of quantum states, circuit designs, and computational results. Built to bridge the gap between quantum theory and practical application.",
+      "This project is a fully functional Checkers game built in Java. It was developed as a group project and follows test-driven development practices.",
     problem:
-      "Quantum computing research lacked accessible visualization tools for complex quantum states and circuit designs. Researchers needed an intuitive interface to design, simulate, and analyze quantum algorithms without deep technical knowledge of quantum mechanics.",
+      "The goal was to create a playable Checkers game that was well-structured and easy to maintain. We also wanted to gain experience with test-driven development and object-oriented design principles.",
     solution:
-      "I created an interactive dashboard using Next.js and Three.js for 3D quantum state visualization. The platform integrates with Quantum SDK for real-time simulations, while D3.js provides detailed performance analytics. WebGL ensures smooth rendering of complex quantum circuit diagrams.",
-    tech: ["Next.js", "Three.js", "Python", "Quantum SDK", "WebGL", "D3.js"],
+      "We developed the game in Java and used JUnit for testing. We applied object-oriented design principles and design patterns like Factory and Observer to create a modular and maintainable codebase.",
+    tech: ["Java", "JUnit"],
     features: [
-      "Quantum circuit visualization",
-      "Real-time quantum state monitoring",
-      "Interactive algorithm design",
-      "Performance analytics",
+      "Fully playable Checkers game",
+      "Test-driven development",
+      "Object-oriented design",
+      "Modular and maintainable code",
     ],
     process: [
       {
-        stepTitle: "01. Algorithm Development",
-        description: "Started by implementing core quantum algorithms and circuit designs using Python and Quantum SDK, focusing on creating efficient quantum state representations and computations.",
-        image: "/quantum-computing-dashboard-holographic-interface-.jpg",
+        stepTitle: "01. Planning & Design",
+        description: "We started by planning the project and designing the overall architecture of the game. We decided on the design patterns we would use and created a basic class diagram.",
+        image: "placeholder",
       },
       {
-        stepTitle: "02. 3D Visualization",
-        description: "Built interactive 3D visualizations with Three.js and WebGL to represent complex quantum states and circuit diagrams, making quantum mechanics accessible through intuitive visual interfaces.",
-        image: "/futuristic-neural-interface-brain-computer-connect.jpg",
+        stepTitle: "02. Game Logic",
+        description: "We implemented the core game logic, including the rules of Checkers and the game board. We used test-driven development to ensure that the game logic was correct.",
+        image: "placeholder",
       },
       {
-        stepTitle: "03. Dashboard Integration",
-        description: "Integrated everything into a cohesive Next.js dashboard with D3.js analytics, enabling researchers to design, simulate, and analyze quantum algorithms in real-time.",
-        image: "/cybersecurity-fortress-digital-protection-shield-b.jpg",
+        stepTitle: "03. User Interface",
+        description: "We created a simple user interface for the game. We separated the user interface from the game logic to make the code more modular.",
+        image: "placeholder",
       },
     ],
     results: [
-      "Enabled 3D visualization of 64-qubit quantum states in real-time",
-      "Reduced quantum algorithm design time by 60% through intuitive interface",
-      "Successfully integrated multiple quantum computing frameworks",
-      "Key takeaway: Mastered complex 3D mathematics and quantum computing concepts"
+      "Successfully developed a playable Checkers game",
+      "Gained experience with test-driven development and JUnit",
+      "Learned about object-oriented design principles and design patterns",
+      "Key takeaway: The importance of planning and design in software development"
     ],
-    liveUrl: "https://quantum-dashboard-demo.com",
-    githubUrl: "https://github.com/bencahoon/quantum-dashboard",
+    liveUrl: "#",
+    githubUrl: "https://github.com/bencahoon01",
   },
-  "cyber-security": {
-    title: "CYBER FORTRESS",
-    subtitle: "CYBERSECURITY, BLOCKCHAIN",
-    heroImage: "/cybersecurity-fortress-digital-protection-shield-b.jpg",
+  "portfolio-website": {
+    title: "PORTFOLIO WEBSITE",
+    subtitle: "PERSONAL PROJECT",
+    heroImage: "placeholder",
     description:
-      "Next-generation cybersecurity platform with blockchain-based threat detection and automated response systems.",
+      "Designed and developed this personal portfolio website to showcase my skills and projects.",
     overview:
-      "An innovative cybersecurity solution that leverages blockchain technology for immutable threat intelligence and automated incident response. The platform provides real-time monitoring and predictive threat analysis.",
+      "This is my personal portfolio website. I designed and developed it myself to showcase my skills and projects. It is built with a modern tech stack and features a clean and minimalist design.",
     problem:
-      "Traditional cybersecurity systems suffer from centralized vulnerabilities and lack transparent threat intelligence sharing. Organizations needed a decentralized solution that could provide immutable audit trails and automated incident response.",
+      "The goal was to create a personal portfolio website that was both visually appealing and easy to navigate. I also wanted to use a modern tech stack to showcase my skills.",
     solution:
-      "I built a blockchain-based security platform using Solidity smart contracts for immutable threat logs. The React dashboard provides real-time monitoring, while Web3 integration ensures decentralized threat intelligence sharing. Node.js handles automated response triggers with MongoDB for scalable data storage.",
-    tech: ["TypeScript", "Solidity", "React", "Web3", "Node.js", "MongoDB"],
+      "I built the website with Next.js, TypeScript, and Tailwind CSS. I used Framer Motion to add some subtle animations and create a more engaging user experience.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     features: [
-      "Blockchain-based threat intelligence",
-      "Automated incident response",
-      "Real-time network monitoring",
-      "Predictive threat analysis",
+      "Clean and minimalist design",
+      "Responsive layout",
+      "Subtle animations",
+      "Modern tech stack",
     ],
     process: [
       {
-        stepTitle: "01. Blockchain Foundation",
-        description: "Developed smart contracts using Solidity to create immutable threat logs and decentralized threat intelligence sharing, establishing the core blockchain infrastructure.",
-        image: "/cybersecurity-fortress-digital-protection-shield-b.jpg",
+        stepTitle: "01. Design",
+        description: "I started by designing the website in Figma. I wanted to create a clean and minimalist design that was easy to navigate.",
+        image: "placeholder",
       },
       {
-        stepTitle: "02. Real-time Dashboard",
-        description: "Built a comprehensive React dashboard with Web3 integration for monitoring threats in real-time, providing intuitive visualizations of security events and automated response triggers.",
-        image: "/futuristic-neural-interface-brain-computer-connect.jpg",
+        stepTitle: "02. Development",
+        description: "I developed the website with Next.js, TypeScript, and Tailwind CSS. I used Framer Motion to add some subtle animations.",
+        image: "placeholder",
       },
       {
-        stepTitle: "03. Scalable Backend",
-        description: "Implemented a Node.js backend with MongoDB for scalable data storage and automated incident response, ensuring the platform could handle enterprise-level security monitoring.",
-        image: "/quantum-computing-dashboard-holographic-interface-.jpg",
+        stepTitle: "03. Deployment",
+        description: "I deployed the website to Vercel. Vercel is a great platform for deploying Next.js applications.",
+        image: "placeholder",
       },
     ],
     results: [
-      "Implemented immutable threat logging with 99.9% uptime reliability",
-      "Reduced incident response time by 75% through automated triggers",
-      "Successfully deployed to handle 10,000+ security events per second",
-      "Key takeaway: Gained expertise in blockchain architecture and enterprise security"
+      "Successfully launched a personal portfolio website",
+      "Gained experience with Next.js, TypeScript, and Tailwind CSS",
+      "Learned about the importance of design and user experience",
+      "Key takeaway: The power of a modern tech stack for building beautiful and performant websites"
     ],
-    liveUrl: "https://cyber-fortress-demo.com",
-    githubUrl: "https://github.com/bencahoon/cyber-fortress",
+    liveUrl: "https://bencahoon.com",
+    githubUrl: "https://github.com/bencahoon01/portfolio",
   },
 }
 
@@ -164,7 +164,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
           {/* --- Left Column (Scrollable Content) --- */}
           <div className="lg:col-span-2 space-y-24"> {/* Increased spacing for a better flow */}
-            
+
             {/* The initial overview, problem, and solution are still valuable context */}
             <div>
               <h2 className="text-3xl font-archivo text-foreground mb-6 grainy-texture">PROJECT OVERVIEW</h2>
@@ -195,7 +195,9 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
                     >
                       {/* Logic to alternate image and text position */}
                       <div className={` ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                        <img src={step.image} alt={step.stepTitle} className="rounded-lg shadow-lg w-full h-auto object-cover" />
+                        <div className="rounded-lg shadow-lg w-full h-64 bg-muted/40 border border-border/30 flex items-center justify-center">
+                          <span className="text-foreground/50 font-mono text-sm">Image Placeholder</span>
+                        </div>
                       </div>
                       <div className={`space-y-4 ${index % 2 === 1 ? "md:order-1" : ""}`}>
                         <h3 className="text-2xl font-archivo text-foreground">{step.stepTitle}</h3>

@@ -4,32 +4,32 @@ import Link from "next/link"
 
 const projects = [
   {
-    id: "neural-interface",
-    title: "NEURAL INTERFACE",
-    subtitle: "AI/ML, BRAIN-COMPUTER INTERFACE",
-    image: "/futuristic-neural-interface-brain-computer-connect.jpg",
-    description: "Revolutionary brain-computer interface enabling direct neural control of digital systems.",
-    tech: ["React", "TensorFlow", "WebGL", "Node.js"],
+    id: "ai-browser-extension",
+    title: "AI-POWERED BROWSER EXTENSION",
+    subtitle: "PERSONAL PROJECT",
+    image: "placeholder",
+    description: "Developed a Chrome extension using React, TypeScript, and Tailwind CSS for AI-assisted responses.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "AWS", "OpenAI"],
     liveUrl: "#",
     githubUrl: "#",
   },
   {
-    id: "quantum-dashboard",
-    title: "QUANTUM DASHBOARD",
-    subtitle: "QUANTUM COMPUTING, DATA VISUALIZATION",
-    image: "/quantum-computing-dashboard-holographic-interface.jpg",
-    description: "Advanced quantum computing visualization platform for complex data analysis.",
-    tech: ["Next.js", "Three.js", "Python", "Quantum SDK"],
+    id: "checkers-game",
+    title: "CHECKERS GAME",
+    subtitle: "GROUP PROJECT",
+    image: "placeholder",
+    description: "Collaborated with a team to develop a playable Checkers game in Java, following test-driven development practices using JUnit.",
+    tech: ["Java", "JUnit"],
     liveUrl: "#",
     githubUrl: "#",
   },
   {
-    id: "cyber-security",
-    title: "CYBER FORTRESS",
-    subtitle: "CYBERSECURITY, BLOCKCHAIN",
-    image: "/cybersecurity-fortress-digital-protection-shield.jpg",
-    description: "Next-generation cybersecurity platform with blockchain-based threat detection.",
-    tech: ["TypeScript", "Solidity", "React", "Web3"],
+    id: "portfolio-website",
+    title: "PORTFOLIO WEBSITE",
+    subtitle: "PERSONAL PROJECT",
+    image: "placeholder",
+    description: "Designed and developed this personal portfolio website to showcase my skills and projects.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -74,11 +74,9 @@ export default function WorkSection() {
               <div className={`${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
                 <Link href={`/work/${project.id}`} className="block group">
                   <div className="relative overflow-hidden bg-muted">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="w-full h-80 object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                    />
+                    <div className="w-full h-80 bg-muted/40 border border-border/30 flex items-center justify-center group-hover:bg-muted/60 transition-all duration-500">
+                      <span className="text-foreground/50 font-mono text-sm">Image Placeholder</span>
+                    </div>
                   </div>
                 </Link>
               </div>

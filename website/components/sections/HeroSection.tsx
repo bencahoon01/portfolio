@@ -51,16 +51,16 @@ export default function HeroSection() {
       <div className="relative z-10 flex items-center justify-center min-h-screen -mt-16" style={{ pointerEvents: 'none' }}>
         <div className="flex flex-col items-center w-full max-w-4xl">
           {/* Symmetrical Name Container */}
-          <div className="flex flex-col w-full gap-y-20 md:gap-y-28">
-            {/* BEN - self-aligned to the start (left) */}
-            <div className="self-start" style={{ pointerEvents: 'auto' }}>
+          <div className="relative w-full h-96 md:h-[28rem]">
+            {/* BEN - positioned symmetrically left of center */}
+            <div className="absolute right-[70%] top-25" style={{ pointerEvents: 'auto' }}>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 BEN
               </h1>
             </div>
 
-            {/* CAHOON - self-aligned to the end (right) */}
-            <div className="self-end" style={{ pointerEvents: 'auto' }}>
+            {/* CAHOON - positioned symmetrically right of center */}
+            <div className="absolute left-[70%] bottom-0" style={{ pointerEvents: 'auto' }}>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 CAHOON
               </h1>
@@ -70,7 +70,7 @@ export default function HeroSection() {
           {/* Title - positioned with a margin below the names */}
           <div className="mt-16" style={{ pointerEvents: 'auto' }}>
             <p className="text-secondary font-mono text-sm md:text-base typewriter bg-background/20 backdrop-blur-sm px-3 py-1 rounded">
-              FULL-STACK DEVELOPER
+              STUDENT & FULL-STACK DEVELOPER
             </p>
           </div>
         </div>
