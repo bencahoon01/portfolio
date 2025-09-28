@@ -6,6 +6,7 @@ import PreLoader from "@/components/preloader"
 import Header from "@/components/header"
 import NameFrame from "@/components/name-frame"
 import DecorativeElements from "@/components/decorative-elements"
+import ScrollTracker from "@/components/ScrollTracker" // New import
 
 // Import section components
 import HeroSection from "@/components/sections/HeroSection"
@@ -36,6 +37,7 @@ export default function Home() {
       <Header /> {/* This has a high z-index (z-40) */}
       <NameFrame />
       <DecorativeElements /> {/* This has a high z-index (z-30) */}
+      <ScrollTracker /> {/* Added the scroll tracker here */}
 
       {/* This container holds your scrollable content */}
       <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
