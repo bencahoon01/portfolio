@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${pirataOne.variable} ${archivoBlack.variable} ${inter.variable}`}
+        className={`bg-background font-sans ${GeistSans.variable} ${GeistMono.variable} ${pirataOne.variable} ${archivoBlack.variable} ${inter.variable}`}
       >
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />

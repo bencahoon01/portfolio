@@ -30,13 +30,14 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="bg-background text-foreground">
-      <Background />
-      <PreLoader />
-      <Header />
+    <main className="text-foreground">
+      <Background /> {/* This component will sit at z-0 */}
+      <PreLoader /> {/* This has a high z-index (z-50) */}
+      <Header /> {/* This has a high z-index (z-40) */}
       <NameFrame />
-      <DecorativeElements />
+      <DecorativeElements /> {/* This has a high z-index (z-30) */}
 
+      {/* This container holds your scrollable content */}
       <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
         <HeroSection />
         <AboutSection />
