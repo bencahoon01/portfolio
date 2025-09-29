@@ -104,7 +104,7 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              I am proficient in a variety of languages and I am eager to tackle new challenges and continuously expand my technical toolkit. I am eager to apply my skills in a collaborative environment to create software that is both innovative and impactful.
+              I am proficient in a variety of languages and I enjoy tackling new challenges and continuously expanding my technical toolkit. I am eager to apply my skills in a collaborative environment to create software that is both innovative and impactful.
             </motion.p>
           </motion.div>
           <motion.div

@@ -1,3 +1,22 @@
+/* Dark mode scrollbar styles */
+/* For Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 12px;
+  background: #18181b;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* For Firefox */
+html {
+  scrollbar-color: #333 #18181b;
+  scrollbar-width: thin;
+}
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));

@@ -24,7 +24,7 @@ export default function ScrollIndicator() {
               <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
             </defs>
             <text className="text-xs fill-secondary font-mono transition-colors duration-200 group-hover:fill-gray-100">
-              <textPath href="#circle">SCROLL-DOWN-SCROLL-DOWN-</textPath>
+              <textPath href="#circle">SCROLL-DOWN--SCROLL-DOWN--SROLL-</textPath>
             </text>
           </svg>
         </div>

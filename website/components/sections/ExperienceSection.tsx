@@ -8,16 +8,27 @@ const experiences = [
     role: "Full-Stack Developer - Capstone Program",
     company: "Naval Information Warfare Center Atlantic, Clemson University",
     period: "Feb 2025 - Present",
-    description:
-      "Collaborated with a student team and NIWC employees to design and develop an AI-assisted training platform using Agile processes. Developing a scalable, serverless backend using AWS Lambda, API Gateway, and TypeScript to create REST APIs for a DynamoDB database. Created Figma mockup designs and built the user interface with React, TypeScript, and Tailwind CSS. Implementing a Retrieval-Augmented Generation (RAG) system utilizing AWS Bedrock to provide AI-driven training support.",
+    bullets: [
+      "Collaborated with a student team and NIWC employees to design and develop an AI-assisted training platform using Agile processes.",
+      "Developed a scalable, serverless backend using AWS Lambda, API Gateway, and TypeScript to create REST APIs for a DynamoDB database.",
+      "Created Figma mockup designs and built the user interface with React, TypeScript, and Tailwind CSS.",
+      "Implemented a Retrieval-Augmented Generation (RAG) system utilizing AWS Bedrock to provide AI-driven training support."
+    ],
     tech: ["React", "TypeScript", "Tailwind CSS", "AWS", "Figma"],
   },
   {
     role: "Student",
     company: "Clemson University",
     period: "Aug 2023 - May 2027",
-    description:
-      "Bachelor of Science in Computer Science with a 3.47 GPA. Relevant Coursework: Algorithms/Data Structures, C/C++, Software Development, Network Programming.",
+    major: "Bachelor of Science in Computer Science",
+    gpa: "3.47/4.0 GPA",
+    graduation: "Expected Graduation: May 2027",
+    coursework: [
+      "Algorithms & Data Structures",
+      "Software Engineering",
+      "Database Management",
+      "Network Programming"
+    ],
     tech: ["C", "C++", "Java", "Python", "JavaScript"],
   },
 ]
@@ -108,7 +119,29 @@ export default function ExperienceSection() {
                     className="overflow-hidden"
                   >
                     <div className="pb-4 space-y-4 pt-2">
-                      <p className="text-foreground/80 leading-relaxed">{exp.description}</p>
+                      {exp.bullets ? (
+                        <ul className="list-disc pl-6 space-y-1 text-foreground/80">
+                          {exp.bullets.map((bullet, i) => (
+                            <li key={i}>{bullet}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <>
+                          {exp.major && <div className="font-semibold text-foreground/90">{exp.major}</div>}
+                          {exp.graduation && <div className="text-foreground/70">{exp.graduation}</div>}
+                          {exp.gpa && <div className="text-foreground/70">{exp.gpa}</div>}
+                          {exp.coursework && (
+                            <div className="mt-2">
+                              <span className="font-semibold">Relevant Coursework:</span>
+                              <ul className="list-disc pl-6">
+                                {exp.coursework.map((course, i) => (
+                                  <li key={i}>{course}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </>
+                      )}
                       <div className="flex flex-wrap gap-2">
                         {exp.tech.map((tech) => (
                           <span
