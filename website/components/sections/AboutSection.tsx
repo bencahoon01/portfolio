@@ -74,7 +74,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 30, willChange: 'transform' }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}

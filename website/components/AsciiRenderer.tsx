@@ -69,7 +69,7 @@ export default function AsciiRenderer() {
         // Silently handle render errors
       }
     }
-  }, 1)
+  })
 
   return null
 }

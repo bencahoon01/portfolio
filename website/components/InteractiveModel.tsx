@@ -119,7 +119,7 @@ export default function InteractiveModel() {
         onPointerEnter={handlePointerEnter}
         onPointerLeave={handlePointerLeave}
       >
-        <torusKnotGeometry args={[2.5, 0.4, 100, 16]} />
+        <torusKnotGeometry args={[2.5, 0.4, 80, 12]} />
         <meshStandardMaterial color="white" />
       </mesh>
     </group>

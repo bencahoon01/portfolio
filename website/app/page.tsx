@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { LazyMotion, domAnimation } from "framer-motion"
 import dynamic from 'next/dynamic'
 import Background from "@/components/background"
 import PreLoader from "@/components/preloader"
@@ -8,6 +9,7 @@ import Header from "@/components/header"
 import NameFrame from "@/components/name-frame"
 import DecorativeElements from "@/components/decorative-elements"
 import ScrollTracker from "@/components/ScrollTracker" // New import
+import ScrollRestorer from "@/components/ScrollRestorer" // New import
 
 const HeroSection = dynamic(() => import('@/components/sections/HeroSection'), {
   ssr: false,
@@ -71,19 +73,21 @@ export default function Home() {
         <PreLoader progress={progress} loadingText={loadingText} />
       ) : (
         <>
-          <Background />
-          <Header />
-          <NameFrame />
-          <DecorativeElements />
-          <ScrollTracker />
-
-          <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
-            <HeroSection />
-            <AboutSection />
-            <WorkSection />
-            <ExperienceSection />
-            <ContactSection />
-          </div>
+          <LazyMotion features={domAnimation}>
+            <Background />
+            <Header />
+            <NameFrame />
+            <DecorativeElements />
+            <ScrollTracker />
+            <ScrollRestorer />
+            <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
+              <HeroSection />
+              <AboutSection />
+              <WorkSection />
+              <ExperienceSection />
+              <ContactSection />
+            </div>
+          </LazyMotion>
         </>
       )}
     </main>

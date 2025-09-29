@@ -54,7 +54,7 @@ export default function ExperienceSection() {
             <motion.div 
               key={index} 
               className="border-b border-foreground/20 pb-6 mx-2"
-              initial={{ opacity: 0, y: 30, x: -20 }}
+              initial={{ opacity: 0, y: 30, x: -20, willChange: 'transform' }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               transition={{ 
                 duration: 0.6, 

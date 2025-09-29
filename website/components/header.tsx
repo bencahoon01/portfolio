@@ -24,13 +24,29 @@ export default function Header() {
       return
     }
 
+    const scrollContainer = document.querySelector('.snap-y');
+    if (!scrollContainer) return;
+
+    // Handle scroll to top separately to ensure "home" is always active at the top
+    const handleScroll = () => {
+      if (scrollContainer.scrollTop < window.innerHeight / 2) {
+        setActiveSection("hero");
+      }
+    };
+
+    scrollContainer.addEventListener('scroll', handleScroll);
+
     const observerOptions = {
-      root: null,
-      rootMargin: '-10% 0px -90% 0px', // Trigger when section is 10% from top
-      threshold: 0
+      root: scrollContainer,
+      rootMargin: "-40% 0px -60% 0px", // Trigger when a section is 40% from the top of the viewport
+      threshold: 0,
     }
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // If we're near the top, let the scroll handler manage the active state.
+      if (scrollContainer.scrollTop < window.innerHeight / 2) {
+        return;
+      }
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id)
@@ -41,7 +57,7 @@ export default function Header() {
     const observer = new IntersectionObserver(observerCallback, observerOptions)
 
     // Observe all sections
-    navItems.forEach((item) => {
+    navItems.slice(1).forEach((item) => { // Observe all sections *except* the hero section
       const element = document.getElementById(item.id)
       if (element) {
         observer.observe(element)
@@ -50,6 +66,7 @@ export default function Header() {
 
     return () => {
       observer.disconnect()
+      scrollContainer.removeEventListener('scroll', handleScroll);
     }
   }, [isWorkPage])
 

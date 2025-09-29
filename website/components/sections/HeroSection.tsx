@@ -37,7 +37,6 @@ export default function HeroSection() {
               dpr={[1, 2]}
               performance={{ min: 0.5 }}
               style={{ pointerEvents: 'auto', width: '100%', height: '100%' }}
-              onPointerMove={() => {}}
             >
               <ambientLight intensity={0.3} />
               <directionalLight position={[5, 5, 5]} intensity={0.5} />
@@ -56,7 +55,7 @@ export default function HeroSection() {
             {/* BEN - positioned on the left, stacked on top */}
             <motion.div 
               className="" 
-              style={{ pointerEvents: 'auto' }}
+              style={{ pointerEvents: 'auto', willChange: 'transform' }}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -69,7 +68,7 @@ export default function HeroSection() {
             {/* CAHOON - positioned below BEN, slightly indented */}
             <motion.div 
               className="ml-8 md:ml-12" 
-              style={{ pointerEvents: 'auto' }}
+              style={{ pointerEvents: 'auto', willChange: 'transform' }}
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -82,7 +81,7 @@ export default function HeroSection() {
             {/* Title - positioned below the names on the left */}
             <motion.div 
               className="mt-8 ml-18" 
-              style={{ pointerEvents: 'auto' }}
+              style={{ pointerEvents: 'auto', willChange: 'transform' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}

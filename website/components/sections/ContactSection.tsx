@@ -7,7 +7,7 @@ export default function ContactSection() {
     <section id="contact" className="snap-start h-screen flex items-center justify-center relative z-20">
       <motion.div 
         className="text-center space-y-8"
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 50, willChange: 'transform' }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
