@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 
 const projects = [
@@ -48,6 +49,8 @@ const containerVariants = {
 const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }
 
 export default function WorkSection() {
+  const router = useRouter()
+
   return (
     <section id="work" className="snap-start min-h-screen flex items-center justify-center relative z-20 py-20">
       <div className="max-w-7xl mx-auto px-8">
@@ -102,7 +105,11 @@ export default function WorkSection() {
                 className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-2" : ""}`}
                 variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
               >
-                <Link href={`/work/${project.id}`} className="block group cursor-pointer grainy-texture-hover">
+                <Link 
+                  href={`/work/${project.id}`} 
+                  onMouseEnter={() => router.prefetch(`/work/${project.id}`)}
+                  className="block group cursor-pointer grainy-texture-hover"
+                >
                   <motion.h3 variants={itemVariants} className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture transition-colors duration-300">
                     {project.title}
                   </motion.h3>
@@ -136,7 +143,11 @@ export default function WorkSection() {
                 transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
                 viewport={{ once: true }}
               >
-                <Link href={`/work/${project.id}`} className="block group">
+                <Link 
+                  href={`/work/${project.id}`} 
+                  onMouseEnter={() => router.prefetch(`/work/${project.id}`)}
+                  className="block group"
+                >
                   <motion.div 
                     className="rounded-lg shadow-lg w-full h-80 bg-muted/40 border border-border/30 flex items-center justify-center group-hover:bg-muted/60 transition-all duration-500"
                     whileHover={{ 
