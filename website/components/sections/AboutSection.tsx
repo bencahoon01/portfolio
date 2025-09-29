@@ -95,7 +95,7 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              I am a Computer Science student at Clemson University with a passion for full-stack development and AI. My experience includes developing AI-assisted training platforms with a focus on scalable, serverless backends using AWS technologies.
+              I am a Computer Science student at Clemson University with a passion for full-stack development and AI. My experience includes developing an AI-assisted training platform with a focus on scalability and modularity, with a serverless backends using AWS technologies.
             </motion.p>
             <motion.p 
               className="text-lg text-foreground/80 leading-relaxed"
@@ -104,7 +104,7 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              I am proficient in a variety of languages and frameworks, and I am always eager to learn new technologies. Explore my projects below to see my skills in action.
+              I am proficient in a variety of languages and I am eager to tackle new challenges and continuously expand my technical toolkit. I am eager to apply my skills in a collaborative environment to create software that is both innovative and impactful.
             </motion.p>
           </motion.div>
           <motion.div
@@ -133,7 +133,7 @@ export default function AboutSection() {
             variants={skillItemVariants}
             viewport={{ once: true }}
           >
-            MY SKILLS
+            SKILLS & KNOWLEDGE
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -151,30 +151,29 @@ export default function AboutSection() {
                 number: "02", 
                 title: "Backend",
                 skills: [
-                  "• Node.js & Express",
-                  "• Python & FastAPI",
+                  "• Node.js",
+                  "• Python, C/C++, Java",
                   "• RESTful APIs",
-                  "• Database Design"
+                  "• AWS DynamoDB"
                 ]
               },
               {
                 number: "03",
                 title: "Cloud & DevOps", 
                 skills: [
-                  "• AWS Services",
+                  "• AWS (Lambda, API Gateway)",
                   "• Serverless Architecture",
-                  "• CI/CD Pipelines",
-                  "• Docker"
+                  "• Agile Methodologies",
+                  "• Git & Version Control"
                 ]
               },
               {
                 number: "04",
                 title: "AI & ML", 
                 skills: [
-                  "• OpenAI Integration",
+                  "• OpenAI API",
                   "• RAG Systems",
-                  "• Machine Learning",
-                  "• Data Processing"
+                  "• AWS Bedrock",
                 ]
               }
             ].map((expertise, index) => (

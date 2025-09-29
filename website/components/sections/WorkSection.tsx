@@ -6,14 +6,24 @@ import { motion } from "framer-motion"
 
 const projects = [
   {
+    id: "niwc-adaptive-platform",
+    title: "ADAPTIVE TRAINING PLATFORM",
+    subtitle: "CAPSTONE PROGRAM",
+    image: "/placeholder.svg",
+    description: "A full-stack project in collaboration with NIWC Atlantic to design and develop an AI-assisted, modular, and scalable training platform.",
+    tech: ["AWS (Lambda, Bedrock, DynamoDB, API Gateway)", "TypeScript", "React", "Tailwind CSS", "Figma", "RAG"],
+    liveUrl: "#",
+    githubUrl: "https://github.com/bencahoon01",
+  },
+  {
     id: "ai-browser-extension",
     title: "AI-POWERED BROWSER EXTENSION",
     subtitle: "PERSONAL PROJECT",
     image: "/placeholder.svg",
-    description: "Developed a Chrome extension using React, TypeScript, and Tailwind CSS for AI-assisted responses.",
+    description: "Developed a Chrome extension using React, TypeScript, and Tailwind CSS for AI-assisted responses. Integrated OpenAI API and later migrated to AWS services, including Bedrock's knowledge base, for enhanced scalability and tailored AI functionality.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "AWS", "OpenAI"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://chrome.google.com/webstore",
+    githubUrl: "https://github.com/bencahoon01",
   },
   {
     id: "checkers-game",
@@ -23,17 +33,7 @@ const projects = [
     description: "Collaborated with a team to develop a playable Checkers game in Java, following test-driven development practices using JUnit.",
     tech: ["Java", "JUnit"],
     liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: "portfolio-website",
-    title: "PORTFOLIO WEBSITE",
-    subtitle: "PERSONAL PROJECT",
-    image: "/placeholder.svg",
-    description: "Designed and developed this personal portfolio website to showcase my skills and projects.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/bencahoon01",
   },
 ]
 
