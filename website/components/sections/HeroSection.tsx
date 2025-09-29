@@ -49,49 +49,49 @@ export default function HeroSection() {
       </ThreeErrorBoundary>
 
       {/* Hero Content Overlay */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen -mt-16" style={{ pointerEvents: 'none' }}>
-        <div className="flex flex-col items-center w-full max-w-4xl">
-          {/* Symmetrical Name Container */}
-          <div className="relative w-full h-96 md:h-[28rem]">
-            {/* BEN - positioned symmetrically left of center */}
+      <div className="relative z-10 flex items-center min-h-screen" style={{ pointerEvents: 'none' }}>
+        <div className="flex flex-col w-full max-w-7xl mx-auto pl-16 pr-8">
+          {/* Left-Stacked Name Container */}
+          <div className="flex flex-col items-start space-y-4 -ml-20">
+            {/* BEN - positioned on the left, stacked on top */}
             <motion.div 
-              className="absolute right-[75%] top-25" 
+              className="" 
               style={{ pointerEvents: 'auto' }}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 BEN
               </h1>
             </motion.div>
 
-            {/* CAHOON - positioned symmetrically right of center */}
+            {/* CAHOON - positioned below BEN, slightly indented */}
             <motion.div 
-              className="absolute left-[73%] bottom-0" 
+              className="ml-8 md:ml-12" 
               style={{ pointerEvents: 'auto' }}
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 CAHOON
               </h1>
             </motion.div>
-          </div>
 
-          {/* Title - positioned with a margin below the names */}
-          <motion.div 
-            className="mt-16" 
-            style={{ pointerEvents: 'auto' }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          >
-            <p className="text-secondary font-mono text-sm md:text-base typewriter bg-background/20 backdrop-blur-sm px-3 py-1 rounded">
-              STUDENT & FULL-STACK DEVELOPER
-            </p>
-          </motion.div>
+            {/* Title - positioned below the names on the left */}
+            <motion.div 
+              className="mt-8 ml-18" 
+              style={{ pointerEvents: 'auto' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            >
+              <p className="text-secondary font-mono text-sm md:text-base typewriter bg-background/20 backdrop-blur-sm px-3 py-1 rounded">
+                STUDENT & FULL-STACK DEVELOPER
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
 

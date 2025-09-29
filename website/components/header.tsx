@@ -1,9 +1,13 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname, useRouter } from "next/navigation"
 
 export default function Header() {
+  const pathname = usePathname()
+  const router = useRouter()
   const [activeSection, setActiveSection] = useState("hero")
+  const isWorkPage = pathname?.startsWith('/work/')
 
   const navItems = [
     { number: "01", label: "home", href: "#hero", id: "hero" },
@@ -14,6 +18,12 @@ export default function Header() {
   ]
 
   useEffect(() => {
+    // If we're on a work page, set work as active
+    if (isWorkPage) {
+      setActiveSection("work")
+      return
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: '-10% 0px -90% 0px', // Trigger when section is 10% from top
@@ -41,9 +51,15 @@ export default function Header() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [isWorkPage])
 
   const scrollToSection = (href: string) => {
+    // If we're on a work page, navigate to home page with the section
+    if (isWorkPage) {
+      router.push(`/${href}`)
+      return
+    }
+
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })

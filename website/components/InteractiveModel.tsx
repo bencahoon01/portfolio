@@ -15,9 +15,9 @@ export default function InteractiveModel() {
       // Simple rotation animation - more subtle and less distracting
       groupRef.current.rotation.y += delta * 0.2
       
-      // Torus has additional rotation on different axes for visual interest
-      torusRef.current.rotation.z += delta * 0.15
-      torusRef.current.rotation.x += delta * 0.1
+      // Torus rotates with subtle tilting motion
+      torusRef.current.rotation.y += delta * 0.15
+      torusRef.current.rotation.x += delta * 0.03  // Very subtle tilt - won't fully flip
     } catch (error) {
       // Handle animation errors gracefully
       console.error('Animation error:', error)
@@ -25,10 +25,10 @@ export default function InteractiveModel() {
   })
 
   return (
-    <group ref={groupRef} position={[0, 0, 0]}>
+    <group ref={groupRef} position={[2, 0, 0]}>
       <mesh ref={torusRef} position={[0, 0, 0]}>
         <torusKnotGeometry args={[2.5, 0.4, 100, 16]} />
-        <meshBasicMaterial color="white" wireframe />
+        <meshStandardMaterial color="white" />
       </mesh>
     </group>
   )

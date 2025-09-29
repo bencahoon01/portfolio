@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -38,6 +37,10 @@
   --sidebar-accent-foreground: #eaeaea;
   --sidebar-border: #888888;
   --sidebar-ring: #007cf0;
+  
+  /* Gradient definitions */
+  --gradient-accent: linear-gradient(135deg, #0066cc, #00a6ff, #007cf0);
+  --gradient-accent-hover: linear-gradient(135deg, #0052a3, #0085d1, #0066cc);
 }
 
 .dark {
@@ -73,6 +76,10 @@
   --sidebar-accent-foreground: #eaeaea;
   --sidebar-border: #888888;
   --sidebar-ring: #007cf0;
+  
+  /* Gradient definitions for dark mode */
+  --gradient-accent: linear-gradient(135deg, #0066cc, #00a6ff, #007cf0);
+  --gradient-accent-hover: linear-gradient(135deg, #0052a3, #0085d1, #0066cc);
 }
 
 @theme inline {
@@ -127,6 +134,41 @@
   }
 }
 
+/* Gradient utility classes */
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-hover:hover {
+    background: var(--gradient-accent-hover);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+  }
+  
+  .bg-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  .bg-gradient-hover:hover {
+    background: var(--gradient-accent-hover);
+    transition: all 0.3s ease;
+  }
+  
+  .border-gradient {
+    border-image: var(--gradient-accent) 1;
+  }
+  
+  .border-gradient-hover:hover {
+    border-image: var(--gradient-accent-hover) 1;
+  }
+}
+
 /* Added cursor spotlight effect styles */
 .cursor-spotlight {
   background-image: radial-gradient(circle at 1px 1px, #888888 1px, transparent 0);
@@ -135,20 +177,7 @@
   -webkit-mask: radial-gradient(400px circle at var(--x, 50%) var(--y, 50%), white, transparent);
 }
 
-/* Updated grainy texture to only apply to text elements, not background */
-.grainy-texture {
-  position: relative;
-}
-
-.grainy-texture::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
-  opacity: 0.25;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
+/* Removed duplicate grainy-texture definition - now using enhanced version below */
 
 /* Added circular text animation */
 @keyframes rotate {
@@ -176,7 +205,8 @@
 
 .typewriter {
   overflow: hidden;
-  border-right: 2px solid #007cf0;
+  border-right: 2px solid;
+  border-image: var(--gradient-accent) 1;
   white-space: nowrap;
   animation: typewriter 2s steps(40, end), blink-caret 0.75s step-end infinite;
 }
@@ -187,7 +217,7 @@
     border-color: transparent;
   }
   50% {
-    border-color: #007cf0;
+    border-image: var(--gradient-accent) 1;
   }
 }
 
@@ -219,4 +249,33 @@
   50% {
     transform: translateY(5px);
   }
+}
+
+/* Enhanced grainy texture for text - similar to TICK effect */
+.grainy-texture {
+  position: relative;
+  background: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #ffffff 0%, #e8e8e8 50%, #ffffff 100%);
+  background-size: 200px 200px, 100% 100%;
+  background-blend-mode: multiply;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.grainy-texture::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='roughPaper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='white' surfaceScale='2'%3E%3CfeDistantLight azimuth='45' elevation='60'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23roughPaper)' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 400px 400px;
+  mix-blend-mode: overlay;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

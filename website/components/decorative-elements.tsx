@@ -26,7 +26,7 @@ export default function DecorativeElements() {
       </div>
 
       <div className="absolute top-30 right-[8.33%] z-30 text-foreground font-mono text-lg font-bold">{currentYear}</div>
-      <div className="absolute top-30 left-[8.33%] z-30 text-foreground font-mono text-lg font-bold">EST. 2023</div>
+      <div className="absolute top-30 left-[8.33%] z-30 text-foreground font-mono text-lg font-bold">EST. 2025</div>
 
       {/* Bottom corner elements */}
       <div className="fixed bottom-8 left-35 z-30 text-foreground font-mono text-sm">
