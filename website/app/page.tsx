@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { LazyMotion, domAnimation } from "framer-motion"
+import { motion } from "framer-motion"
 import dynamic from 'next/dynamic'
 import Background from "@/components/background"
 import PreLoader from "@/components/preloader"
@@ -73,21 +73,19 @@ export default function Home() {
         <PreLoader progress={progress} loadingText={loadingText} />
       ) : (
         <>
-          <LazyMotion features={domAnimation}>
-            <Background />
-            <Header />
-            <NameFrame />
-            <DecorativeElements />
-            <ScrollTracker />
-            <ScrollRestorer />
-            <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
-              <HeroSection />
-              <AboutSection />
-              <WorkSection />
-              <ExperienceSection />
-              <ContactSection />
-            </div>
-          </LazyMotion>
+          <Background />
+          <Header />
+          <NameFrame />
+          <DecorativeElements />
+          <ScrollTracker />
+          <ScrollRestorer />
+          <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
+            <HeroSection />
+            <AboutSection />
+            <WorkSection />
+            <ExperienceSection />
+            <ContactSection />
+          </div>
         </>
       )}
     </main>
