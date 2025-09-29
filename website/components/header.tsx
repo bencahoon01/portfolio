@@ -76,7 +76,7 @@ export default function Header() {
               <span className="text-secondary text-sm">{item.number}</span>
               <button
                 onClick={() => scrollToSection(item.href)}
-                className={`transition-all duration-300 hover:rotate-y-12 ${
+                className={`text-lg font-semibold transition-all duration-300 hover:rotate-y-12 ${
                   activeSection === item.id ? "text-accent" : "text-foreground hover:text-accent"
                 }`}
                 style={{
