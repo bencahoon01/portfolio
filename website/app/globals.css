@@ -254,9 +254,25 @@
 /* Enhanced grainy texture for text - similar to TICK effect */
 .grainy-texture {
   position: relative;
+  --grainy-color: #ffffff;
   background: 
     url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E"),
-    linear-gradient(135deg, #ffffff 0%, #e8e8e8 50%, #ffffff 100%);
+    linear-gradient(135deg, var(--grainy-color) 0%, #e8e8e8 50%, var(--grainy-color) 100%);
+  background-size: 200px 200px, 100% 100%;
+  background-blend-mode: multiply;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Hover state for grainy texture - allows color changes */
+.grainy-texture-hover:hover .grainy-texture {
+  --grainy-color: #007cf0;
+  background: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #007cf0 0%, #4da3ff 50%, #007cf0 100%);
   background-size: 200px 200px, 100% 100%;
   background-blend-mode: multiply;
   -webkit-background-clip: text;
@@ -279,3 +295,5 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+

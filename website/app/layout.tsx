@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Pirata_One, Archivo_Black, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+
 import "./globals.css"
 
 const pirataOne = Pirata_One({
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body
         className={`bg-background font-sans ${GeistSans.variable} ${GeistMono.variable} ${pirataOne.variable} ${archivoBlack.variable} ${inter.variable}`}
       >
+        {/* <CursorProvider /> */}
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

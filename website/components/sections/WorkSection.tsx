@@ -69,7 +69,7 @@ export default function WorkSection() {
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              SELECTED CASES
+              SELECTED PROJECTS
             </motion.h2>
           </div>
         </motion.div>
@@ -93,9 +93,9 @@ export default function WorkSection() {
                 transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
                 viewport={{ once: true }}
               >
-                <Link href={`/work/${project.id}`} className="block group cursor-pointer">
+                <Link href={`/work/${project.id}`} className="block group cursor-pointer grainy-texture-hover">
                   <motion.h3 
-                    className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture group-hover:text-accent transition-colors duration-300"
+                    className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture transition-colors duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
