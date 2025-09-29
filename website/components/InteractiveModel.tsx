@@ -12,6 +12,7 @@ export default function InteractiveModel() {
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
   
   // Global mouse event handlers for better interaction area
   const handleGlobalPointerMove = (event: PointerEvent) => {
@@ -31,6 +32,8 @@ export default function InteractiveModel() {
   
   const handleGlobalPointerUp = () => {
     setIsDragging(false)
+    // Reset cursor when dragging ends
+    document.body.style.cursor = isHovering ? 'grab' : 'auto'
   }
   
   // Handle pointer down on the torus or nearby area
@@ -39,10 +42,26 @@ export default function InteractiveModel() {
     setDragStart({ x: event.clientX, y: event.clientY })
     event.stopPropagation()
   }
+
+  // Handle hover states for cursor styling
+  const handlePointerEnter = () => {
+    setIsHovering(true)
+    document.body.style.cursor = 'grab'
+  }
+
+  const handlePointerLeave = () => {
+    setIsHovering(false)
+    if (!isDragging) {
+      document.body.style.cursor = 'auto'
+    }
+  }
   
   // Set up global event listeners for better interaction
   useEffect(() => {
     if (isDragging) {
+      // Change cursor to grabbing when dragging
+      document.body.style.cursor = 'grabbing'
+      
       window.addEventListener('pointermove', handleGlobalPointerMove)
       window.addEventListener('pointerup', handleGlobalPointerUp)
       
@@ -51,7 +70,14 @@ export default function InteractiveModel() {
         window.removeEventListener('pointerup', handleGlobalPointerUp)
       }
     }
-  }, [isDragging, dragStart, rotation])
+  }, [isDragging, dragStart, rotation, isHovering])
+
+  // Cleanup cursor on component unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.cursor = 'auto'
+    }
+  }, [])
 
   useFrame((state: any, delta: number) => {
     if (!groupRef.current || !torusRef.current) return
@@ -78,6 +104,8 @@ export default function InteractiveModel() {
       <mesh 
         position={[0, 0, 0]}
         onPointerDown={handlePointerDown}
+        onPointerEnter={handlePointerEnter}
+        onPointerLeave={handlePointerLeave}
         visible={false}
       >
         <sphereGeometry args={[4]} /> {/* Larger sphere for easier interaction */}
@@ -88,6 +116,8 @@ export default function InteractiveModel() {
         ref={torusRef} 
         position={[0, 0, 0]}
         onPointerDown={handlePointerDown}
+        onPointerEnter={handlePointerEnter}
+        onPointerLeave={handlePointerLeave}
       >
         <torusKnotGeometry args={[2.5, 0.4, 100, 16]} />
         <meshStandardMaterial color="white" />
