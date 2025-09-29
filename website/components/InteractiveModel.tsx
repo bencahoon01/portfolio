@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Mesh, Group } from 'three'
 
@@ -14,34 +14,31 @@ export default function InteractiveModel() {
   const [rotation, setRotation] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   
-  // Global mouse event handlers for better interaction area
-  const handleGlobalPointerMove = (event: PointerEvent) => {
-    if (!isDragging) return
-    
-    const deltaX = event.clientX - dragStart.x
-    const deltaY = event.clientY - dragStart.y
-    
-    // Reduced sensitivity for smoother control
-    setRotation({
-      x: rotation.x + deltaY * 0.003, // Much less sensitive
-      y: rotation.y + deltaX * 0.003  // Much less sensitive
-    })
-    
-    setDragStart({ x: event.clientX, y: event.clientY })
-  }
-  
-  const handleGlobalPointerUp = () => {
-    setIsDragging(false)
-    // Reset cursor when dragging ends
-    document.body.style.cursor = isHovering ? 'grab' : 'auto'
-  }
-  
   // Handle pointer down on the torus or nearby area
   const handlePointerDown = (event: any) => {
     setIsDragging(true)
     setDragStart({ x: event.clientX, y: event.clientY })
     event.stopPropagation()
   }
+  
+  // Global mouse event handlers for better interaction area
+  const handleGlobalPointerMove = useCallback((event: PointerEvent) => {
+    setDragStart(prev => {
+      const deltaX = event.clientX - prev.x
+      const deltaY = event.clientY - prev.y
+      
+      setRotation(currentRotation => ({
+        x: currentRotation.x + deltaY * 0.003, // Much less sensitive
+        y: currentRotation.y + deltaX * 0.003  // Much less sensitive
+      }))
+
+      return { x: event.clientX, y: event.clientY }
+    })
+  }, [])
+  
+  const handleGlobalPointerUp = useCallback(() => {
+    setIsDragging(false)
+  }, [])
 
   // Handle hover states for cursor styling
   const handlePointerEnter = () => {
@@ -58,19 +55,22 @@ export default function InteractiveModel() {
   
   // Set up global event listeners for better interaction
   useEffect(() => {
+    // Set cursor based on hover and drag state
     if (isDragging) {
-      // Change cursor to grabbing when dragging
       document.body.style.cursor = 'grabbing'
-      
+    } else {
+      document.body.style.cursor = isHovering ? 'grab' : 'auto'
+    }
+
+    if (isDragging) {
       window.addEventListener('pointermove', handleGlobalPointerMove)
       window.addEventListener('pointerup', handleGlobalPointerUp)
-      
       return () => {
         window.removeEventListener('pointermove', handleGlobalPointerMove)
         window.removeEventListener('pointerup', handleGlobalPointerUp)
       }
     }
-  }, [isDragging, dragStart, rotation, isHovering])
+  }, [isDragging, isHovering, handleGlobalPointerMove, handleGlobalPointerUp])
 
   // Cleanup cursor on component unmount
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function InteractiveModel() {
         onPointerLeave={handlePointerLeave}
         visible={false}
       >
-        <sphereGeometry args={[4]} /> {/* Larger sphere for easier interaction */}
+        <sphereGeometry args={[4, 8, 8]} /> {/* Reduced segments for performance */}
       </mesh>
       
       {/* Actual torus */}

@@ -55,6 +55,19 @@ const TypewriterText = ({ text, className, delay = 0 }: { text: string; classNam
   )
 }
 
+const skillsContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+  },
+}
+
+const skillItemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { ease: "easeOut", duration: 0.5 } },
+}
+
 export default function AboutSection() {
   return (
     <section id="about" className="snap-start h-screen flex items-center justify-center relative z-20 py-20">
@@ -110,16 +123,14 @@ export default function AboutSection() {
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial="hidden"
+          whileInView="visible"
+          variants={skillsContainerVariants}
           viewport={{ once: true }}
         >
           <motion.h2 
             className="text-3xl md:text-4xl font-archivo text-foreground mb-12 grainy-texture"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={skillItemVariants}
             viewport={{ once: true }}
           >
             MY SKILLS
@@ -170,65 +181,26 @@ export default function AboutSection() {
               <motion.div 
                 key={expertise.number}
                 className="space-y-4"
-                initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                variants={skillItemVariants}
                 whileHover={{ 
                   scale: 1.05, 
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.4 + (index * 0.2),
-                  ease: "easeOut"
-                }}
-                viewport={{ once: true }}
               >
-                <motion.div 
-                  className="text-4xl font-mono text-accent"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.6 + (index * 0.2),
-                    type: "spring",
-                    stiffness: 200
-                  }}
-                  viewport={{ once: true }}
-                >
+                <div className="text-4xl font-mono text-accent">
                   {expertise.number}
-                </motion.div>
-                <motion.h3 
-                  className="text-2xl font-archivo text-foreground"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 + (index * 0.2) }}
-                  viewport={{ once: true }}
-                >
+                </div>
+                <h3 className="text-2xl font-archivo text-foreground">
                   {expertise.title}
-                </motion.h3>
-                <motion.ul 
-                  className="space-y-2 text-foreground/80"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 + (index * 0.2) }}
-                  viewport={{ once: true }}
-                >
+                </h3>
+                <ul className="space-y-2 text-foreground/80">
                   {expertise.skills.map((skill, skillIndex) => (
-                    <motion.li
-                      key={skillIndex}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ 
-                        duration: 0.4, 
-                        delay: 0.9 + (index * 0.2) + (skillIndex * 0.1) 
-                      }}
-                      viewport={{ once: true }}
-                    >
+                    <li key={skillIndex}>
                       {skill}
-                    </motion.li>
+                    </li>
                   ))}
-                </motion.ul>
+                </ul>
               </motion.div>
             ))}
           </div>

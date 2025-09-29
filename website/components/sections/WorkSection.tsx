@@ -36,6 +36,17 @@ const projects = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 + i * 0.1 },
+  }),
+}
+
+const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }
+
 export default function WorkSection() {
   return (
     <section id="work" className="snap-start min-h-screen flex items-center justify-center relative z-20 py-20">
@@ -81,69 +92,36 @@ export default function WorkSection() {
               className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                 index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
               }`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              custom={index}
               viewport={{ once: true }}
             >
               <motion.div 
                 className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-2" : ""}`}
-                initial={{ opacity: 0, x: index % 2 === 1 ? 30 : -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
-                viewport={{ once: true }}
+                variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
               >
                 <Link href={`/work/${project.id}`} className="block group cursor-pointer grainy-texture-hover">
-                  <motion.h3 
-                    className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture transition-colors duration-300"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
-                    viewport={{ once: true }}
-                  >
+                  <motion.h3 variants={itemVariants} className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture transition-colors duration-300">
                     {project.title}
                   </motion.h3>
-                  <motion.p 
-                    className="text-sm font-mono text-secondary mb-4 tracking-wider"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
-                    viewport={{ once: true }}
-                  >
+                  <motion.p variants={itemVariants} className="text-sm font-mono text-secondary mb-4 tracking-wider">
                     {project.subtitle}
                   </motion.p>
-                  <motion.p 
-                    className="text-foreground/80 leading-relaxed mb-6"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
-                    viewport={{ once: true }}
-                  >
+                  <motion.p variants={itemVariants} className="text-foreground/80 leading-relaxed mb-6">
                     {project.description}
                   </motion.p>
                 </Link>
                 
                 {/* Tech Stack */}
-                <motion.div 
-                  className="flex flex-wrap gap-2"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 0.6 + (index * 0.1) }}
-                  viewport={{ once: true }}
-                >
+                <motion.div variants={itemVariants} className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (
                     <motion.span
                       key={tech}
                       className="px-3 py-1 border border-foreground/30 text-sm font-mono text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-                      initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
                       whileHover={{ scale: 1.05 }}
-                      transition={{ 
-                        duration: 0.4, 
-                        delay: 0.7 + (index * 0.1) + (techIndex * 0.05),
-                        ease: "easeOut"
-                      }}
-                      viewport={{ once: true }}
+                      variants={itemVariants}
                     >
                       {tech}
                     </motion.span>

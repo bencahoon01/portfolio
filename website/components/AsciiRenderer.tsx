@@ -59,8 +59,10 @@ export default function AsciiRenderer() {
     }
   }, [size])
 
+  let frameCount = 0
   useFrame(() => {
-    if (effectRef.current && scene && camera) {
+    frameCount++
+    if (frameCount % 2 === 0 && effectRef.current && scene && camera) {
       try {
         effectRef.current.render(scene, camera)
       } catch (error) {

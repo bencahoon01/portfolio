@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const experiences = [
   {
@@ -93,38 +93,36 @@ export default function ExperienceSection() {
                 </div>
               </motion.button>
 
-              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                expandedExperience === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                <div className="pb-4 space-y-4 pt-2">
-                  <p className="text-foreground/80 leading-relaxed">{exp.description}</p>
-                  <motion.div 
-                    className="flex flex-wrap gap-2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: expandedExperience === index ? 1 : 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
+              <AnimatePresence initial={false}>
+                {expandedExperience === index && (
+                  <motion.div
+                    key="content"
+                    initial="collapsed"
+                    animate="open"
+                    exit="collapsed"
+                    variants={{
+                      open: { opacity: 1, height: "auto" },
+                      collapsed: { opacity: 0, height: 0 },
+                    }}
+                    transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    className="overflow-hidden"
                   >
-                    {exp.tech.map((tech, techIndex) => (
-                      <motion.span
-                        key={tech}
-                        className="px-3 py-1 border border-foreground/30 text-sm font-mono text-foreground"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ 
-                          opacity: expandedExperience === index ? 1 : 0,
-                          scale: expandedExperience === index ? 1 : 0.8
-                        }}
-                        transition={{ 
-                          duration: 0.4, 
-                          delay: expandedExperience === index ? 0.2 + (techIndex * 0.05) : 0,
-                          ease: "easeOut"
-                        }}
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
+                    <div className="pb-4 space-y-4 pt-2">
+                      <p className="text-foreground/80 leading-relaxed">{exp.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 border border-foreground/30 text-sm font-mono text-foreground"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </motion.div>
-                </div>
-              </div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </motion.div>
