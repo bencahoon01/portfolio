@@ -20,7 +20,7 @@ export default function ScrollRestorer() {
 
     // Restore scroll position on navigating back to home
     if (pathname === '/') {
-      const savedPosition = sessionStorage.getItem(SCROLL_POSITION_KEY)
+      const savedPosition = window.location.hash ? null : sessionStorage.getItem(SCROLL_POSITION_KEY)
       if (savedPosition) {
         // Use a timeout to ensure the layout is stable before scrolling
         setTimeout(() => {
