@@ -15,7 +15,7 @@ export default function ProjectDetailClient({ project }: { project: any }) {
   }
 
   const h2Classes = `text-3xl font-archivo mb-6 ${isMobile ? 'text-white' : 'text-foreground grainy-texture'}`;
-  const h1Style =  { WebkitTextStroke: "1px white", color: "transparent" };
+  const h1Style =  { WebkitTextStroke: "1px white", color: "transparent" ,};
 
   return (
     <main className="bg-background text-foreground min-h-screen">
@@ -136,7 +136,7 @@ export default function ProjectDetailClient({ project }: { project: any }) {
             <div className="sticky top-32 space-y-12">
               {/* Sticky Project Title */}
               <h1
-                className="text-6xl font-archivo"
+                className="text-4xl sm:text-6xl lg:text-6xl font-archivo "
                 style={h1Style}
               >
                 {project.title}
