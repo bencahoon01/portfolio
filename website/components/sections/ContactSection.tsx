@@ -94,7 +94,7 @@ export default function ContactSection() {
 
       <div className="w-full max-w-6xl mx-auto text-center">
         <motion.h2 
-          className="text-6xl md:text-8xl font-archivo text-foreground mb-4 grainy-texture"
+          className="text-5xl sm:text-6xl md:text-8xl font-archivo text-foreground mb-4 grainy-texture"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

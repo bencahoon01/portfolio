@@ -94,13 +94,13 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection(item.href)}
                 className={`text-lg font-semibold transition-all duration-300 hover:rotate-y-12 ${
-                  activeSection === item.id ? "text-accent" : "text-foreground hover:text-accent"
+                  activeSection === item.id ? "text-accent" : "text-white hover:text-accent"
                 }`}
                 style={{
                   transformStyle: "preserve-3d",
                 }}
               >
-                {`// ${item.label}`}
+                {`/ ${item.label}`}
               </button>
             </li>
           ))}

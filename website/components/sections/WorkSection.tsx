@@ -110,7 +110,7 @@ export default function WorkSection() {
                   onMouseEnter={() => router.prefetch(`/work/${project.id}`)}
                   className="block group cursor-pointer grainy-texture-hover"
                 >
-                  <motion.h3 variants={itemVariants} className="text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture transition-colors duration-300">
+                  <motion.h3 variants={itemVariants} className="text-3xl sm:text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture transition-colors duration-300">
                     {project.title}
                   </motion.h3>
                   <motion.p variants={itemVariants} className="text-sm font-mono text-secondary mb-4 tracking-wider">

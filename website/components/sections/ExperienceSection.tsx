@@ -41,7 +41,7 @@ export default function ExperienceSection() {
     <section id="experience" className="snap-start min-h-screen flex items-center justify-center relative z-20 py-20">
       <div className="max-w-4xl mx-auto px-8 w-full">
         <motion.h2 
-          className="text-6xl md:text-8xl font-archivo text-foreground mb-16 text-center grainy-texture"
+          className="text-5xl sm:text-6xl md:text-8xl font-archivo text-foreground mb-16 text-center grainy-texture"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -51,7 +51,7 @@ export default function ExperienceSection() {
         </motion.h2>
 
         <motion.div 
-          className={`space-y-6 max-h-[60vh] pr-4 px-2 ${animationComplete ? 'overflow-y-auto overflow-x-visible' : 'overflow-hidden'}`}
+          className={`space-y-6 lg:max-h-[60vh] pr-4 px-2 ${animationComplete ? 'lg:overflow-y-auto overflow-x-visible' : 'overflow-hidden'}`}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}

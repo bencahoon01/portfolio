@@ -80,7 +80,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <motion.h2 
-              className="text-6xl md:text-8xl font-archivo text-foreground mb-8 grainy-texture"
+              className="text-5xl sm:text-6xl md:text-8xl font-archivo text-foreground mb-8 grainy-texture"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -135,7 +135,7 @@ export default function AboutSection() {
           >
             SKILLS & KNOWLEDGE
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 number: "01",

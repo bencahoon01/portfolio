@@ -53,9 +53,9 @@ export default function HeroSection() {
 
       {/* Hero Content Overlay */}
       <div className="relative z-10 flex items-center min-h-screen" style={{ pointerEvents: 'none' }}>
-        <div className="flex flex-col w-full max-w-7xl mx-auto pl-4 sm:pl-16 pr-8">
+                <div className="flex flex-col w-full max-w-7xl mx-auto px-6 sm:px-8 md:pl-16 md:pr-8">
           {/* Left-Stacked Name Container */}
-          <div className="flex flex-col items-start space-y-4 -ml-10 sm:-ml-20">
+          <div className="flex flex-col items-start space-y-4 md:-ml-20">
             {/* BEN - positioned on the left, stacked on top */}
             <motion.div 
               className="" 
