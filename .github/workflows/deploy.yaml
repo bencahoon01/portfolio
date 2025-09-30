@@ -13,20 +13,25 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8 # Specify pnpm version
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm' # Or 'yarn', 'pnpm'
+          cache: 'pnpm' # Set cache to pnpm
 
       - name: Install dependencies 👨🏻‍💻
-        run: npm install # Or 'yarn install', 'pnpm install'
+        run: pnpm install # Use pnpm install
 
       - name: Build and Export 🏗️
-        run: npm run build # This will now also export the static site
+        run: pnpm run build # Use pnpm to run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: out # The folder the action should deploy.
+          branch: gh-pages
+          folder: out
