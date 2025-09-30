@@ -1,8 +1,9 @@
-"use client"
+'use client'
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const projects = [
   {
@@ -50,6 +51,10 @@ const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 
 
 export default function WorkSection() {
   const router = useRouter()
+  const isMobile = useIsMobile();
+  const titleClasses = `text-3xl sm:text-4xl md:text-6xl font-archivo mb-2 transition-colors duration-300 ${
+    isMobile ? 'text-white' : 'text-foreground grainy-texture'
+  }`;
 
   return (
     <section id="work" className="snap-start min-h-screen flex items-center justify-center relative z-20 py-20">
@@ -110,7 +115,7 @@ export default function WorkSection() {
                   onMouseEnter={() => router.prefetch(`/work/${project.id}`)}
                   className="block group cursor-pointer grainy-texture-hover"
                 >
-                  <motion.h3 variants={itemVariants} className="text-3xl sm:text-4xl md:text-6xl font-archivo text-foreground mb-2 grainy-texture transition-colors duration-300">
+                  <motion.h3 variants={itemVariants} className={titleClasses}>
                     {project.title}
                   </motion.h3>
                   <motion.p variants={itemVariants} className="text-sm font-mono text-secondary mb-4 tracking-wider">

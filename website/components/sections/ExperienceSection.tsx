@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const experiences = [
   {
@@ -36,12 +37,16 @@ const experiences = [
 export default function ExperienceSection() {
   const [expandedExperience, setExpandedExperience] = useState<number | null>(null)
   const [animationComplete, setAnimationComplete] = useState(false)
+  const isMobile = useIsMobile();
+  const experienceClasses = `text-5xl sm:text-6xl md:text-8xl font-archivo text-center mb-16 ${
+    isMobile ? 'text-white' : 'text-foreground grainy-texture'
+  }`;
 
   return (
     <section id="experience" className="snap-start min-h-screen flex items-center justify-center relative z-20 py-20">
       <div className="max-w-4xl mx-auto px-8 w-full">
         <motion.h2 
-          className="text-5xl sm:text-6xl md:text-8xl font-archivo text-foreground mb-16 text-center grainy-texture"
+          className={experienceClasses}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

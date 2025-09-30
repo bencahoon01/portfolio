@@ -3,12 +3,17 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Download, Copy, Check, X, BellRing, CheckCircle } from 'lucide-react'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export default function ContactSection() {
   const [emailCopied, setEmailCopied] = useState(false)
   const email = 'bencahoon.contact@gmail.com'
+  const isMobile = useIsMobile();
+  const contactClasses = `text-5xl sm:text-6xl md:text-8xl font-archivo mb-4 ${
+    isMobile ? 'text-white' : 'text-foreground grainy-texture'
+  }`;
   
   // State for the form submission status and notification
   const [formStatus, setFormStatus] = useState('idle') // 'idle', 'submitting', 'success', 'error'
@@ -94,7 +99,7 @@ export default function ContactSection() {
 
       <div className="w-full max-w-6xl mx-auto text-center">
         <motion.h2 
-          className="text-5xl sm:text-6xl md:text-8xl font-archivo text-foreground mb-4 grainy-texture"
+          className={contactClasses}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

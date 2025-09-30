@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
@@ -9,6 +9,7 @@ import ThreeErrorBoundary from '@/components/ThreeErrorBoundary'
 import ScrollIndicator from '@/components/ScrollIndicator'
 import WorkPagePrefetcher from '@/components/WorkPagePrefetcher'
 import HeroDecorativeElements from '@/components/HeroDecorativeElements'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 // Fallback component for when 3D fails to load
 const ASCIIFallback = () => (
@@ -26,6 +27,9 @@ const ASCIIFallback = () => (
 )
 
 export default function HeroSection() {
+  const isMobile = useIsMobile()
+  const titleClasses = `text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg ${isMobile ? 'text-white' : 'text-foreground grainy-texture'}`;
+
   return (
     
     <section id="hero" className="snap-start min-h-screen lg:h-screen relative z-20 bg-background overflow-hidden fade-out-bottom" style={{ pointerEvents: 'auto' }}>
@@ -64,7 +68,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <h1 className={titleClasses}>
                 BEN
               </h1>
             </motion.div>
@@ -77,7 +81,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
-              <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-foreground leading-none tracking-tight grainy-texture bg-background/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <h1 className={titleClasses}>
                 CAHOON
               </h1>
             </motion.div>

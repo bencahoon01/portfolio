@@ -1,7 +1,8 @@
-"use client"
+'use client'
 
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 // Typewriter animation component
 const TypewriterText = ({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) => {
@@ -69,6 +70,14 @@ const skillItemVariants = {
 }
 
 export default function AboutSection() {
+  const isMobile = useIsMobile();
+  const aboutMeClasses = `text-5xl sm:text-6xl md:text-8xl font-archivo mb-8 ${
+    isMobile ? 'text-white' : 'text-foreground grainy-texture'
+  }`;
+  const skillsClasses = `text-3xl md:text-4xl font-archivo mb-12 ${
+    isMobile ? 'text-white' : 'text-foreground grainy-texture'
+  }`;
+
   return (
     <section id="about" className="snap-start min-h-screen lg:h-screen flex items-center justify-center relative z-20 py-20">
       <div className="max-w-7xl mx-auto px-8">
@@ -80,7 +89,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <motion.h2 
-              className="text-5xl sm:text-6xl md:text-8xl font-archivo text-foreground mb-8 grainy-texture"
+              className={aboutMeClasses}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -129,7 +138,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
         >
           <motion.h2 
-            className="text-3xl md:text-4xl font-archivo text-foreground mb-12 grainy-texture"
+            className={skillsClasses}
             variants={skillItemVariants}
             viewport={{ once: true }}
           >
