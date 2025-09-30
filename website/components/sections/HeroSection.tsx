@@ -7,6 +7,7 @@ import AsciiRenderer from '@/components/AsciiRenderer'
 import InteractiveModel from '@/components/InteractiveModel'
 import ThreeErrorBoundary from '@/components/ThreeErrorBoundary'
 import ScrollIndicator from '@/components/ScrollIndicator'
+import WorkPagePrefetcher from '@/components/WorkPagePrefetcher'
 import HeroDecorativeElements from '@/components/HeroDecorativeElements'
 
 // Fallback component for when 3D fails to load
@@ -28,6 +29,9 @@ export default function HeroSection() {
   return (
     
     <section id="hero" className="snap-start h-screen relative z-20 bg-background overflow-hidden fade-out-bottom" style={{ pointerEvents: 'auto' }}>
+      {/* This component pre-compiles dynamic pages in the background during development */}
+      <WorkPagePrefetcher />
+
       {/* ASCII Canvas Background */}
       <ThreeErrorBoundary fallback={<ASCIIFallback />}>
         <div className="absolute inset-0 z-0" style={{ pointerEvents: 'auto' }}>
