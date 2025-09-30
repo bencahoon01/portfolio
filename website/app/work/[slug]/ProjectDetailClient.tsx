@@ -1,15 +1,23 @@
-"use client"
+'use client'
 
 import Link from "next/link"
 import { motion } from "framer-motion"
 import Background from "@/components/background"
 import Header from "@/components/header"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 // This component now receives the 'project' data as a prop
 export default function ProjectDetailClient({ project }: { project: any }) {
+  const isMobile = useIsMobile();
+
   if (!project) {
     return null; // Or some fallback UI
   }
+
+  const h2Classes = `text-3xl font-archivo mb-6 ${isMobile ? 'text-white' : 'text-foreground grainy-texture'}`;
+  const h1Style = isMobile
+    ? { color: 'white' }
+    : { WebkitTextStroke: "1px white", color: "transparent" };
 
   return (
     <main className="bg-background text-foreground min-h-screen">
@@ -48,29 +56,29 @@ export default function ProjectDetailClient({ project }: { project: any }) {
 
       {/* Main content container with more horizontal space */}
       <div className="relative z-20 max-w-screen-xl mx-auto px-8 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-16">
 
           {/* --- Left Column (Scrollable Content) --- */}
           <div className="lg:col-span-2 space-y-24"> {/* Increased spacing for a better flow */}
 
             {/* The initial overview, problem, and solution are still valuable context */}
             <div>
-              <h2 className="text-3xl font-archivo text-foreground mb-6 grainy-texture">PROJECT OVERVIEW</h2>
+              <h2 className={h2Classes}>PROJECT OVERVIEW</h2>
               <p className="text-lg text-foreground/80 leading-relaxed">{project.overview}</p>
             </div>
             <div>
-              <h2 className="text-3xl font-archivo text-foreground mb-6 grainy-texture">THE PROBLEM</h2>
+              <h2 className={h2Classes}>THE PROBLEM</h2>
               <p className="text-lg text-foreground/80 leading-relaxed">{project.problem}</p>
             </div>
             <div>
-              <h2 className="text-3xl font-archivo text-foreground mb-6 grainy-texture">THE SOLUTION</h2>
+              <h2 className={h2Classes}>THE SOLUTION</h2>
               <p className="text-lg text-foreground/80 leading-relaxed">{project.solution}</p>
             </div>
 
             {/* --- NEW DYNAMIC PROCESS SECTION --- */}
             {project.process && (
               <div>
-                <h2 className="text-3xl font-archivo text-foreground mb-12 grainy-texture">PROCESS & GALLERY</h2>
+                <h2 className={`${h2Classes} mb-12`}>PROCESS & GALLERY</h2>
                 <div className="space-y-16">
                   {project.process.map((step, index) => (
                     <motion.div
@@ -105,7 +113,7 @@ export default function ProjectDetailClient({ project }: { project: any }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-3xl font-archivo text-foreground mb-8 grainy-texture">RESULTS & KEY TAKEAWAYS</h2>
+                <h2 className={`${h2Classes} mb-8`}>RESULTS & KEY TAKEAWAYS</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {project.results.map((result, index) => (
                     <motion.div
@@ -130,11 +138,8 @@ export default function ProjectDetailClient({ project }: { project: any }) {
             <div className="sticky top-32 space-y-12">
               {/* Sticky Project Title */}
               <h1
-                className="text-6xl font-archivo text-transparent"
-                style={{
-                  WebkitTextStroke: "1px white",
-                  color: "transparent",
-                }}
+                className="text-6xl font-archivo"
+                style={h1Style}
               >
                 {project.title}
               </h1>

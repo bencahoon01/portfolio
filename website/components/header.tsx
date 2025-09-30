@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useEffect, useState } from "react"
 import { usePathname, useRouter } from "next/navigation"
@@ -18,57 +18,38 @@ export default function Header() {
   ]
 
   useEffect(() => {
-    // If we're on a work page, set work as active
     if (isWorkPage) {
-      setActiveSection("work")
-      return
+      setActiveSection("work");
+      return;
     }
-
-    const scrollContainer = document.querySelector('.snap-y');
-    if (!scrollContainer) return;
-
-    // Handle scroll to top separately to ensure "home" is always active at the top
-    const handleScroll = () => {
-      if (scrollContainer.scrollTop < window.innerHeight / 2) {
-        setActiveSection("hero");
-      }
-    };
-
-    scrollContainer.addEventListener('scroll', handleScroll);
 
     const observerOptions = {
-      root: scrollContainer,
-      rootMargin: "-40% 0px -60% 0px", // Trigger when a section is 40% from the top of the viewport
+      root: null, // observing intersections relative to the viewport
+      rootMargin: "-50% 0px -50% 0px",
       threshold: 0,
-    }
+    };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      // If we're near the top, let the scroll handler manage the active state.
-      if (scrollContainer.scrollTop < window.innerHeight / 2) {
-        return;
-      }
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id)
+          setActiveSection(entry.target.id);
         }
-      })
-    }
+      });
+    };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Observe all sections
-    navItems.slice(1).forEach((item) => { // Observe all sections *except* the hero section
-      const element = document.getElementById(item.id)
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.id);
       if (element) {
-        observer.observe(element)
+        observer.observe(element);
       }
-    })
+    });
 
     return () => {
-      observer.disconnect()
-      scrollContainer.removeEventListener('scroll', handleScroll);
-    }
-  }, [isWorkPage])
+      observer.disconnect();
+    };
+  }, [isWorkPage, navItems]);
 
   const scrollToSection = (href: string) => {
     // If we're on a work page, navigate to home page with the section
