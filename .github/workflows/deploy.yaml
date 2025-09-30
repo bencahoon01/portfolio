@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Or your default branch
+      - main
 
 jobs:
   build-and-deploy:
@@ -16,22 +16,29 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8 # Specify pnpm version
+          version: 8
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'pnpm' # Set cache to pnpm
+          cache: 'pnpm'
+          # Add this line to specify the lock file location
+          cache-dependency-path: website/pnpm-lock.yaml
 
       - name: Install dependencies 👨🏻‍💻
-        run: pnpm install # Use pnpm install
+        # Add working-directory to run this command in the 'website' folder
+        working-directory: ./website
+        run: pnpm install
 
       - name: Build and Export 🏗️
-        run: pnpm run build # Use pnpm to run build
+        # Add working-directory here as well
+        working-directory: ./website
+        run: pnpm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: out
+          # Update the folder path to include the 'website' directory
+          folder: website/out
