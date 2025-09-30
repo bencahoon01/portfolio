@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Download, Copy, Check, X, BellRing, CheckCircle } from 'lucide-react'
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 export default function ContactSection() {
   const [emailCopied, setEmailCopied] = useState(false)
   const email = 'bencahoon.contact@gmail.com'
@@ -131,7 +133,7 @@ export default function ContactSection() {
             </div>
             <div>
               <h3 className="font-archivo text-2xl text-foreground mb-4">Download Resume</h3>
-              <motion.a href="/resume.pdf" download="Ben_Cahoon_Resume.pdf" className="inline-flex items-center gap-3 px-6 py-3 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-mono text-sm tracking-wider" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} >
+              <motion.a href={`${basePath}/ben_resume.pdf`} download="Ben_Cahoon_Resume.pdf" className="inline-flex items-center gap-3 px-6 py-3 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 font-mono text-sm tracking-wider" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} >
                 <Download size={18} />
                 <span>RESUME</span>
               </motion.a>
