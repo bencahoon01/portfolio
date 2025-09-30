@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# Add this permissions block
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,16 +27,13 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
-          # Add this line to specify the lock file location
           cache-dependency-path: website/pnpm-lock.yaml
 
       - name: Install dependencies 👨🏻‍💻
-        # Add working-directory to run this command in the 'website' folder
         working-directory: ./website
         run: pnpm install
 
       - name: Build and Export 🏗️
-        # Add working-directory here as well
         working-directory: ./website
         run: pnpm run build
 
@@ -40,5 +41,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          # Update the folder path to include the 'website' directory
           folder: website/out
