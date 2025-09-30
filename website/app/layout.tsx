@@ -4,7 +4,8 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Pirata_One, Archivo_Black, Inter, Mohave } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { Suspense } from "react"
+import { Suspense } from "react" 
+import ScrollRestorer from "@/components/ScrollRestorer"
 
 import "./globals.css"
 
@@ -39,12 +40,15 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
-}>) {
+}>): React.ReactElement {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`bg-background font-sans ${GeistSans.variable} ${GeistMono.variable} ${pirataOne.variable} ${archivoBlack.variable} ${inter.variable} ${mohave.variable}`}
       >
+        <Suspense fallback={null}>
+          <ScrollRestorer />
+        </Suspense>
         {/* <CursorProvider /> */}
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
