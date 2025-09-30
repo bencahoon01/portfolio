@@ -112,7 +112,7 @@ export default function ContactSection() {
         </motion.p>
         
         <div className="flex flex-col md:flex-row gap-16">
-          {/* Left Column: Info & Links (No changes here) */}
+          {/* Left Column: Info & Links */}
           <motion.div 
             className="w-full md:w-1/3 text-center md:text-left space-y-8"
             initial={{ opacity: 0, x: -50 }}
@@ -145,7 +145,7 @@ export default function ContactSection() {
             </div>
           </motion.div>
           
-          {/* --- Start of Right Column Code --- */}
+          {/* Start of Right Column Code */}
           <div className="w-full md:w-2/3">
             {/* The Form Itself */}
             <motion.div
@@ -188,17 +188,6 @@ export default function ContactSection() {
                   {formStatus === 'error' && <p className="text-red-500 mt-4">Something went wrong. Please try again.</p>}
                 </div>
               </form>
-              {/* Test Notification Button (for development/testing) */}
-              <div className="mt-4 flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => setFormStatus('success')}
-                  className="inline-flex items-center gap-2 px-4 py-2 border border-accent text-accent rounded hover:bg-accent/10 transition-colors duration-200 font-mono text-xs"
-                >
-                  <BellRing size={16} />
-                  Test Notification
-                </button>
-              </div>
             </motion.div>
           </div>
           {/* --- End of Right Column Code --- */}
