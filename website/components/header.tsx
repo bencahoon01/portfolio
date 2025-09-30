@@ -87,10 +87,10 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-40 p-6">
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent pointer-events-none" />
       <nav className="flex justify-center relative z-10">
-        <ul className="flex space-x-8 font-inter">
+        <ul className="flex space-x-4 lg:space-x-8 font-inter">
           {navItems.map((item, index) => (
             <li key={item.number} className="flex items-center space-x-2">
-              <span className="text-secondary text-sm">{item.number}</span>
+              <span className="hidden sm:inline text-secondary text-sm">{item.number}</span>
               <button
                 onClick={() => scrollToSection(item.href)}
                 className={`text-lg font-semibold transition-all duration-300 hover:rotate-y-12 ${

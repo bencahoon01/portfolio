@@ -12,7 +12,7 @@ export default function ScrollTracker() {
 
   return (
     <motion.div
-      className="fixed left-8 top-0 bottom-0 w-1 bg-accent origin-top z-50"
+      className="hidden lg:block fixed left-8 top-0 bottom-0 w-1 bg-accent origin-top z-10"
       style={{ scaleY }}
     />
   )

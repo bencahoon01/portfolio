@@ -79,7 +79,7 @@ export default function Home() {
           <DecorativeElements />
           <ScrollTracker />
           <ScrollRestorer />
-          <div className="snap-y snap-proximity h-screen overflow-y-scroll scroll-smooth">
+          <div className="lg:snap-y lg:snap-proximity lg:h-screen overflow-y-scroll scroll-smooth">
             <HeroSection />
             <AboutSection />
             <WorkSection />

@@ -70,7 +70,7 @@ const skillItemVariants = {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="snap-start h-screen flex items-center justify-center relative z-20 py-20">
+    <section id="about" className="snap-start min-h-screen lg:h-screen flex items-center justify-center relative z-20 py-20">
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
           <motion.div 
