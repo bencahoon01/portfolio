@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/portfolio',
+  assetPrefix: '/portfolio/',
+  
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -7,7 +11,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: false, // Changed to false
+    unoptimized: true,
   },
 }
 

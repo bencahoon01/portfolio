@@ -7,6 +7,13 @@ import Background from "@/components/background"
 import Header from "@/components/header"
 import DecorativeElements from "@/components/decorative-elements"
 
+export async function generateStaticParams() {
+  const projects = ["ai-browser-extension", "niwc-adaptive-platform", "checkers-game"];
+  return projects.map((slug) => ({
+    slug: slug,
+  }));
+}
+
 const projects = {
   "ai-browser-extension": {
     title: "AI-POWERED BROWSER EXTENSION",
