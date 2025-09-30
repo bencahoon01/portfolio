@@ -22,7 +22,6 @@ const experiences = [
     company: "Clemson University",
     period: "Aug 2023 - May 2027",
     major: "Bachelor of Science in Computer Science",
-    gpa: "3.47/4.0 GPA",
     graduation: "Expected Graduation: May 2027",
     coursework: [
       "Algorithms & Data Structures",
@@ -38,7 +37,7 @@ export default function ExperienceSection() {
   const [expandedExperience, setExpandedExperience] = useState<number | null>(null)
   const [animationComplete, setAnimationComplete] = useState(false)
   const isMobile = useIsMobile();
-  const experienceClasses = `text-5xl sm:text-6xl md:text-8xl font-archivo text-center mb-16 ${
+  const experienceClasses = `text-3xl sm:text-6xl md:text-8xl font-archivo text-center mb-16 ${
     isMobile ? 'text-white' : 'text-foreground grainy-texture'
   }`;
 

@@ -15,9 +15,7 @@ export default function ProjectDetailClient({ project }: { project: any }) {
   }
 
   const h2Classes = `text-3xl font-archivo mb-6 ${isMobile ? 'text-white' : 'text-foreground grainy-texture'}`;
-  const h1Style = isMobile
-    ? { color: 'white' }
-    : { WebkitTextStroke: "1px white", color: "transparent" };
+  const h1Style =  { WebkitTextStroke: "1px white", color: "transparent" };
 
   return (
     <main className="bg-background text-foreground min-h-screen">
