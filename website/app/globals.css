@@ -21,7 +21,6 @@ html {
 
 @custom-variant dark (&:is(.dark *));
 
-/* Updated theme for futuristic terminal aesthetic */
 :root {
   --background: #0a0a0a;
   --foreground: #eaeaea;
@@ -200,7 +199,6 @@ html {
   -webkit-mask: radial-gradient(400px circle at var(--x, 50%) var(--y, 50%), white, transparent);
 }
 
-/* Removed duplicate grainy-texture definition - now using enhanced version below */
 
 /* Added circular text animation */
 @keyframes rotate {
@@ -274,7 +272,7 @@ html {
   }
 }
 
-/* Enhanced grainy texture for text - similar to TICK effect */
+/* Enhanced grainy texture for text */
 .grainy-texture {
   position: relative;
   --grainy-color: #ffffff;

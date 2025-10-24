@@ -13,9 +13,9 @@ export default function PreLoader({ progress, loadingText }: PreLoaderProps) {
         <div className="circular-text w-48 h-48 flex items-center justify-center">
           <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
             <defs>
-              {/* Larger radius for text ring only (41) */}
+              {/* Larger radius for text ring only*/}
               <path id="textcircle" d="M 50, 50 m -41, 0 a 41,41 0 1,1 82,0 a 41,41 0 1,1 -82,0" />
-              {/* Progress and background circles remain at radius 35 */}
+              {/* Progress and background circles*/}
               <path id="circle" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
             </defs>
             {/* Background circle */}

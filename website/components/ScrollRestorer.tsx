@@ -25,8 +25,8 @@ export default function ScrollRestorer() {
         // Use a timeout to ensure the element is rendered, especially with animations.
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 100) // A small delay is often sufficient.
-        return // Exit early, we've handled the scroll
+        }, 100) 
+        return 
       }
     }
 
@@ -35,7 +35,7 @@ export default function ScrollRestorer() {
     if (document.referrer.includes('/work/')) {
       const workSection = document.getElementById('work')
       workSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      return // Exit early
+      return
     }
 
     // 3. Fallback to your original session storage logic for general navigation
@@ -45,6 +45,5 @@ export default function ScrollRestorer() {
     }
   }, [pathname, searchParams]) // Re-run when path or search params (including hash) change
 
-  // This component does not render anything.
   return null;
 }

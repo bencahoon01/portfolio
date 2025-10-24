@@ -157,7 +157,7 @@ export default function ProjectDetailClient({ project }: { project: any }) {
                 </div>
               </div>
 
-              {/* Links */}
+              {/* Links 
               <div className="space-y-4">
                 <h3 className="text-xl font-archivo text-foreground mb-4">LINKS</h3>
                 <div className="space-y-3">
@@ -179,7 +179,7 @@ export default function ProjectDetailClient({ project }: { project: any }) {
                   </a>
                 </div>
               </div>
-
+              */}
               {/* Back to Work */}
               <div className="pt-8">
                 <Link

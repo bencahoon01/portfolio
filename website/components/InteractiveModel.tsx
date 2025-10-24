@@ -28,8 +28,8 @@ export default function InteractiveModel() {
       const deltaY = event.clientY - prev.y
       
       setRotation(currentRotation => ({
-        x: currentRotation.x + deltaY * 0.003, // Much less sensitive
-        y: currentRotation.y + deltaX * 0.003  // Much less sensitive
+        x: currentRotation.x + deltaY * 0.003,
+        y: currentRotation.y + deltaX * 0.003  
       }))
 
       return { x: event.clientX, y: event.clientY }
@@ -93,14 +93,13 @@ export default function InteractiveModel() {
       torusRef.current.rotation.y = autoRotationY + rotation.y
       torusRef.current.rotation.x = autoRotationX + rotation.x
     } catch (error) {
-      // Handle animation errors gracefully
       console.error('Animation error:', error)
     }
   })
 
   return (
     <group ref={groupRef} position={[2, 0, 0]}>
-      {/* Larger invisible interaction area */}
+      {/* invisible interaction area */}
       <mesh 
         position={[0, 0, 0]}
         onPointerDown={handlePointerDown}
@@ -108,7 +107,7 @@ export default function InteractiveModel() {
         onPointerLeave={handlePointerLeave}
         visible={false}
       >
-        <sphereGeometry args={[4, 8, 8]} /> {/* Reduced segments for performance */}
+        <sphereGeometry args={[4, 8, 8]} />
       </mesh>
       
       {/* Actual torus */}

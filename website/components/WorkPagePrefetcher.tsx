@@ -3,27 +3,26 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-// --- IMPORTANT ---
-// You would typically generate this list dynamically from a CMS,
-// a database, or a local data file.
+
+// Would typically generate this list dynamically
+// seems to load slowly sometimes so prefetching helps
 const workSlugs = ['project-one', 'project-two', 'project-three']
 
-// This flag will persist across component re-mounts for the entire session.
+// This flag will persist across component re-mounts for the entire session
 let hasPrefetched = false
 
 export default function WorkPagePrefetcher() {
   const router = useRouter()
 
   useEffect(() => {
-    // Only run the pre-compilation logic if it hasn't been done this session.
-    // This check works for both development (including Strict Mode) and production.
+    // Only run the pre-compilation logic if it hasn't been done this session
     if (hasPrefetched) {
       return
     }
 
     workSlugs.forEach((slug) => {
       const path = `/work/${slug}`
-      // 1. Prefetch the page for fast client-side navigation (works in production).
+      // 1. Prefetch the page for fast client-side navigation
       router.prefetch(path)
 
       // 2. In development, also trigger a fetch to force server-side compilation.
@@ -38,5 +37,5 @@ export default function WorkPagePrefetcher() {
     hasPrefetched = true
   }, [router])
 
-  return null // This component does not render anything.
+  return null
 }

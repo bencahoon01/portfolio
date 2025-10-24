@@ -8,7 +8,7 @@ const experiences = [
   {
     role: "Full-Stack Developer - Capstone Program",
     company: "Naval Information Warfare Center Atlantic, Clemson University",
-    period: "Feb 2025 - Present",
+    period: "Aug 2025 - Present",
     bullets: [
       "Collaborated with a student team and NIWC employees to design and develop an AI-assisted training platform using Agile processes.",
       "Developed a scalable, serverless backend using AWS Lambda, API Gateway, and TypeScript to create REST APIs for a DynamoDB database.",
@@ -163,15 +163,15 @@ export default function ExperienceSection() {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* <div className="mt-16">
+        {/*
+        <div className="mt-16">
           <h3 className="text-2xl font-archivo text-foreground mb-6">CERTIFICATIONS</h3>
           <ul className="space-y-2 text-foreground/80">
-            <li>• AWS Certified Solutions Architect</li>
-            <li>• Google Cloud Professional Developer</li>
-            <li>• Meta React Developer Certificate</li>
+            <li>• Postman API Fundamentals Student Expert</li>
+            
           </ul>
-        </div>*/}
+        </div>
+        */}
       </div>
     </section>
   )

@@ -115,7 +115,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
         >
-          Have a project in mind or just want to say hello? Fill out the form or reach out through my socials. Let's create something extraordinary together.
+          Have a project in mind or just want to say hello? Fill out the form or reach out through my socials.
         </motion.p>
         
         <div className="flex flex-col md:flex-row gap-16">

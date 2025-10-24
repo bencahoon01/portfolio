@@ -19,10 +19,9 @@ const TypewriterText = ({ text, className, delay = 0 }: { text: string; classNam
         setDisplayText(prev => prev + text[currentIndex])
         setCurrentIndex(prev => prev + 1)
       } else if (!isTypingComplete) {
-        // Typing is complete, wait a moment then hide cursor
         setTimeout(() => setIsTypingComplete(true), 1000)
       }
-    }, 80 + Math.random() * 40) // Slight randomness for natural typing feel
+    }, 80 + Math.random() * 40) 
 
     return () => clearTimeout(timer)
   }, [currentIndex, text, isInView, isTypingComplete])
@@ -153,7 +152,6 @@ export default function AboutSection() {
                   "• React & Next.js",
                   "• TypeScript", 
                   "• Tailwind CSS",
-                  "• Framer Motion"
                 ]
               },
               {

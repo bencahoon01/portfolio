@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { motion } from 'framer-motion' // Import motion
+import { motion } from 'framer-motion' 
 import AsciiRenderer from '@/components/AsciiRenderer'
 import InteractiveModel from '@/components/InteractiveModel'
 import ThreeErrorBoundary from '@/components/ThreeErrorBoundary'

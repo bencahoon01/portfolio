@@ -8,19 +8,19 @@ const projects = {
     subtitle: "PERSONAL PROJECT",
     heroImage: "placeholder",
     description:
-      "Developed a Chrome extension using React, TypeScript, and Tailwind CSS for AI-assisted responses. Integrated OpenAI API and later migrated to AWS services, including Bedrock's knowledge base, for enhanced scalability and tailored AI functionality.",
+      "Developed a Chrome extension using React, TypeScript, and Vite for AI-assisted responses. Implemented OpenAI API integration with AWS Cognito authentication and experimenting with AWS Bedrock agents for enhanced AI functionality.",
     overview:
-      "This project started as a quick prototype with vanilla JavaScript and later evolved into a full-stack application built with a modern, scalable architecture. Its primary purpose was to explore advanced AI integrations and modern frontend/backend development patterns, directly preparing me for the Capstone project.",
+      "This project started as a quick prototype with vanilla JavaScript and later evolved to use modern technologies like React, TypeScript, and Vite. Its primary purpose was to explore AI integrations and modern frontend development tools, while beginning to experiment with AWS services for authentication and AI capabilities.",
     problem:
-      "The goal was to create a quick, AI-powered browser extension for contextual answers, while also using the project to gain practical experience with new tools and services like AWS and Bedrock's knowledge base.",
+      "The goal was to create a quick, AI-powered browser extension for contextual answers, while also using the project to gain practical experience with new tools and services like AWS Cognito and Bedrock agents.",
     solution:
-      "The extension was initially built with basic HTML/CSS/JavaScript and the OpenAI API. I then refactored and remade the extension using React and Vite, integrating AWS services for a scalable, secure backend with user authentication and potential premium features. I also implemented Bedrock's knowledge base to tailor the AI's information for specific topics.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "AWS", "OpenAI"],
+      "The extension was initially built with basic HTML/CSS/JavaScript and the OpenAI API. I then refactored and rebuilt the extension using React, TypeScript, and Vite for a modern frontend experience. Currently implementing AWS Cognito for user authentication and testing AWS Bedrock agents to explore tailored AI capabilities.",
+    tech: ["React", "TypeScript", "Vite", "OpenAI API", "AWS Cognito", "AWS Bedrock"],
     features: [
-      "AI-assisted contextual responses",
-      "User authentication (AWS Cognito for sign-in)",
-      "Tailored AI knowledge using Bedrock's Knowledge Base",
-      "Scalable, serverless architecture (AWS)",
+      "AI-assisted contextual responses using OpenAI API",
+      "Modern React/TypeScript/Vite frontend architecture",
+      "User authentication with AWS Cognito sign-in",
+      "Testing AWS Bedrock agent integration",
     ],
     process: [
       {
@@ -29,40 +29,40 @@ const projects = {
         image: "placeholder",
       },
       {
-        stepTitle: "02. Refactor and Migration",
-        description: "Remade the extension with React and Vite, focusing on a more robust user interface. Migrated the backend to AWS services for better scalability and versatility, allowing for user sign-in and premium features.",
+        stepTitle: "02. Frontend Refactor",
+        description: "Rebuilt the extension with React, TypeScript, and Vite, focusing on a more robust and maintainable user interface with modern development tooling and best practices.",
         image: "placeholder",
       },
       {
-        stepTitle: "03. Advanced AI Integration",
-        description: "Integrated AWS Bedrock's knowledge base to tailor the AI's responses, ensuring the project served as a valuable learning ground for the Capstone's AI requirements.",
+        stepTitle: "03. AWS Integration",
+        description: "Implemented AWS Cognito for user authentication and sign-in functionality. Currently testing AWS Bedrock agents to explore possibilities for more tailored AI responses and enhanced capabilities.",
         image: "placeholder",
       },
     ],
     results: [
-      "Successfully launched a functional, refactored Chrome extension",
-      "Gained extensive hands-on experience with modern tools (React/Vite) and cloud services (AWS)",
-      "Achieved a scalable architecture with secure user authentication",
-      "Key takeaway: The project was instrumental in mastering the technologies later used in the Capstone project"
+      "Successfully refactored from vanilla JavaScript to modern React/TypeScript/Vite stack",
+      "Implemented functional OpenAI API integration for AI-assisted responses",
+      "Added AWS Cognito authentication for secure user sign-in",
+      "Key takeaway: Gained hands-on experience with modern frontend tooling and beginning AWS service integration"
     ],
     liveUrl: "https://chrome.google.com/webstore",
     githubUrl: "https://github.com/bencahoon01",
   },
   "niwc-adaptive-platform": {
     title: "ADAPTIVE TRAINING PLATFORM",
-    subtitle: "CAPSTONE PROGRAM",
+    subtitle: "CAPSTONE PROGRAM (IN PROGRESS)",
     heroImage: "placeholder",
     description:
-      "A full-stack project in collaboration with NIWC Atlantic to design and develop an AI-assisted, modular, and scalable training platform.",
+      "A full-stack project in collaboration with NIWC Atlantic to design and develop an AI-assisted, modular, and scalable training platform. Currently implementing AWS Bedrock AI and knowledge base features.",
     overview:
-      "Developing a next-generation, AI-assisted training platform for the Naval Information Warfare Center Atlantic (NIWC). The platform is being built to be modular, scalable, and intuitive, accounting for various user roles and accessibility requirements.",
+      "Developing a next-generation training platform for the Naval Information Warfare Center Atlantic (NIWC). The platform is being built to be modular, scalable, and intuitive, accounting for various user roles and accessibility requirements. Currently in active development with AI features being implemented.",
     problem:
-      "The challenge was to design a comprehensive training platform from scratch that could securely manage user data, provide a highly scalable backend, and incorporate cutting-edge AI to provide targeted, effective training support.",
+      "The challenge is to design a comprehensive training platform from scratch that can securely manage user data, provide a highly scalable backend, and incorporate cutting-edge AI to provide targeted, effective training support.",
     solution:
-      "I collaborated with a student team and NIWC employees using Agile processes to architect a full-stack solution. The solution features a serverless backend using **AWS Lambda** and **API Gateway** with a **DynamoDB** database. The frontend is built with **React, TypeScript, and Tailwind CSS**. A key component is the **Retrieval-Augmented Generation (RAG)** system using **AWS Bedrock** for AI-driven training assistance.",
+      "Collaborating with a student team and NIWC employees using Agile processes to architect a full-stack solution. The solution features a serverless backend using AWS Lambda and API Gateway with a DynamoDB database. The frontend is built with React, TypeScript, and Tailwind CSS. Currently implementing the AI component using AWS Bedrock and knowledge base for a Retrieval-Augmented Generation (RAG) system to provide AI-driven training assistance.",
     tech: ["AWS (Lambda, Bedrock, DynamoDB, API Gateway)", "TypeScript", "React", "Tailwind CSS", "Figma", "RAG"],
     features: [
-      "AI-assisted training support via AWS Bedrock (RAG)",
+      "AI-assisted training support via AWS Bedrock (currently implementing)",
       "Scalable, serverless architecture for REST APIs",
       "Intuitive user interface built from Figma mockups",
       "Design accounting for accessibility and different user roles",
@@ -70,25 +70,25 @@ const projects = {
     process: [
       {
         stepTitle: "01. Research & Stakeholder Planning",
-        description: "The first half of the semester was dedicated to researching project feasibility, meeting with NIWC stakeholders to determine goals and scope, and creating initial Figma mockup designs. Key goals were modularity, scalability, and intuitiveness.",
+        description: "The first portion of the semester was dedicated to researching project feasibility, meeting with NIWC stakeholders to determine goals and scope, and creating initial Figma mockup designs. Key goals were modularity, scalability, and intuitiveness.",
         image: "placeholder",
       },
       {
-        stepTitle: "02. AI Architecture Design",
-        description: "We integrated an AI assistant using AWS Bedrock's knowledge base, specifically tailored to code training and setting strict guidelines to effectively assist users without providing direct answers. This formed the RAG system.",
+        stepTitle: "02. AI Architecture Planning",
+        description: "Proposed and planned an AI assistant using AWS Bedrock's knowledge base, specifically tailored to code training and setting strict guidelines to effectively assist users without providing direct answers. Designed the architecture for a RAG system to enhance training effectiveness.",
         image: "placeholder",
       },
       {
         stepTitle: "03. Development Sprints (Current)",
-        description: "Continuing work in Agile sprints, I am developing the scalable backend API routes and DynamoDB database tables with TypeScript, and implementing the user interface using React, TypeScript, and Tailwind CSS.",
+        description: "Continuing work in Agile sprints, developing the scalable backend API routes and DynamoDB database tables with TypeScript, and implementing the user interface using React, TypeScript, and Tailwind CSS. Currently working on implementing AWS Bedrock AI and knowledge base integration.",
         image: "placeholder",
       },
     ],
     results: [
-      "Successfully designed and developed a scalable, serverless backend",
-      "Implemented a complex RAG system for tailored AI support",
+      "Successfully designed a scalable, serverless backend architecture",
+      "Created comprehensive Figma mockups and user flow designs",
       "Gained experience with full-stack development in a professional, Agile Capstone environment",
-      "Key takeaway: Mastery of the AWS serverless ecosystem and collaboration on a large-scale project"
+      "Key takeaway: Learning to architect and implement complex AWS serverless systems and collaborate on a large-scale project"
     ],
     liveUrl: "#", // Placeholder for Capstone - use project name if a deployment exists
     githubUrl: "https://github.com/bencahoon01", // Placeholder

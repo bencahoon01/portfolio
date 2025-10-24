@@ -8,8 +8,8 @@ import PreLoader from "@/components/preloader"
 import Header from "@/components/header"
 import NameFrame from "@/components/name-frame"
 import DecorativeElements from "@/components/decorative-elements"
-import ScrollTracker from "@/components/ScrollTracker" // New import
-import ScrollRestorer from "@/components/ScrollRestorer" // New import
+import ScrollTracker from "@/components/ScrollTracker" 
+import ScrollRestorer from "@/components/ScrollRestorer" 
 
 const HeroSection = dynamic(() => import('@/components/sections/HeroSection'), {
   ssr: false,
